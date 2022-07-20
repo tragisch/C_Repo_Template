@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['maxofdoublevector_66',['maxOfDoubleVector',['../matrix_8c.html#ac926af2836521c99f92ce1559baafdfe',1,'maxOfDoubleVector(DoubleVector *vec):&#160;matrix.c'],['../matrix_8h.html#ac926af2836521c99f92ce1559baafdfe',1,'maxOfDoubleVector(DoubleVector *vec):&#160;matrix.c']]],
+  ['meanofdoublevector_67',['meanOfDoubleVector',['../matrix_8c.html#a282f7b00d67139299df39299b81f4f11',1,'meanOfDoubleVector(DoubleVector *vec):&#160;matrix.c'],['../matrix_8h.html#a282f7b00d67139299df39299b81f4f11',1,'meanOfDoubleVector(DoubleVector *vec):&#160;matrix.c']]],
+  ['minofdoublevector_68',['minOfDoubleVector',['../matrix_8c.html#a4071a9f4319692110356c63e93f48a76',1,'minOfDoubleVector(DoubleVector *vec):&#160;matrix.c'],['../matrix_8h.html#a4071a9f4319692110356c63e93f48a76',1,'minOfDoubleVector(DoubleVector *vec):&#160;matrix.c']]],
+  ['multiplydoublematrices_69',['multiplyDoubleMatrices',['../matrix_8c.html#a13cb5e451c174e4f881752dad1b5e51e',1,'multiplyDoubleMatrices(DoubleMatrix *m1, DoubleMatrix *m2):&#160;matrix.c'],['../matrix_8h.html#a13cb5e451c174e4f881752dad1b5e51e',1,'multiplyDoubleMatrices(DoubleMatrix *m1, DoubleMatrix *m2):&#160;matrix.c']]],
+  ['multiplydoublevectors_70',['multiplyDoubleVectors',['../matrix_8c.html#a6c0eedb8d9e38305daefd8c5930f35c8',1,'multiplyDoubleVectors(DoubleVector *vec1, DoubleVector *vec2):&#160;matrix.c'],['../matrix_8h.html#a6c0eedb8d9e38305daefd8c5930f35c8',1,'multiplyDoubleVectors(DoubleVector *vec1, DoubleVector *vec2):&#160;matrix.c']]],
+  ['multiplyscalartovector_71',['multiplyScalarToVector',['../matrix_8c.html#abe2f493f58cdd3beaf52d61d0699bedc',1,'multiplyScalarToVector(DoubleVector *vec, double scalar):&#160;matrix.c'],['../matrix_8h.html#abe2f493f58cdd3beaf52d61d0699bedc',1,'multiplyScalarToVector(DoubleVector *vec, double scalar):&#160;matrix.c']]],
+  ['multiplyvectormatrix_72',['multiplyVectorMatrix',['../matrix_8c.html#abb46f7887f5ad89d92f6fde616e7b011',1,'multiplyVectorMatrix(DoubleVector *vec, DoubleMatrix *mat):&#160;matrix.c'],['../matrix_8h.html#abb46f7887f5ad89d92f6fde616e7b011',1,'multiplyVectorMatrix(DoubleVector *vec, DoubleMatrix *mat):&#160;matrix.c']]]
+];

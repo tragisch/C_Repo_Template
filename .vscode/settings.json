@@ -1,0 +1,15 @@
+{
+    "bazel-cpp-tools.compileCommands.targets": [
+        "main"
+    ],
+    "C_Cpp.errorSquiggles": "Enabled",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#d98c0f",
+        "titleBar.activeBackground": "#2B470E",
+        "titleBar.activeForeground": "#F7FCF1"
+    },
+    "files.associations": {
+        "glib.h": "c",
+        "gslist.h": "c"
+    }
+}

@@ -1,0 +1,914 @@
+\hypertarget{matrix_8h}{}\doxysection{/\+Users/uwe/\+Documents/\+Programmierung/\+Monorepo/deps/my\+Lib/src/matrix.h File Reference}
+\label{matrix_8h}\index{/Users/uwe/Documents/Programmierung/Monorepo/deps/myLib/src/matrix.h@{/Users/uwe/Documents/Programmierung/Monorepo/deps/myLib/src/matrix.h}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}
+\item 
+struct \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{matrix_8h_a1c2454dbbfd298b8e2cd09eb93b6a8f6}\label{matrix_8h_a1c2454dbbfd298b8e2cd09eb93b6a8f6}} 
+\#define {\bfseries INIT\+\_\+\+CAPACITY}~5u
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{matrix_8h_a3d7b4fcf5954a0cfdbe09a55146bb7be}\label{matrix_8h_a3d7b4fcf5954a0cfdbe09a55146bb7be}} 
+typedef struct \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} {\bfseries Double\+Vector}
+\item 
+\mbox{\Hypertarget{matrix_8h_a7db1bba12a1421a23f80abf9d7beacb3}\label{matrix_8h_a7db1bba12a1421a23f80abf9d7beacb3}} 
+typedef struct \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} {\bfseries Double\+Matrix}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{matrix_8h_acba2181f73ffe41b3def2e7e86040b52}\label{matrix_8h_acba2181f73ffe41b3def2e7e86040b52}} 
+int {\bfseries random\+Integer} (int min, int max)
+\item 
+double \mbox{\hyperlink{matrix_8h_ab23f4807ffc22bddc1473401d7ff6df9}{random\+Number}} ()
+\begin{DoxyCompactList}\small\item\em return random number between 0 ... 1 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_a6485818a08ca314b03176a58881760ef}{print\+Double\+Array}} (double $\ast$p\+\_\+array, unsigned int length)
+\begin{DoxyCompactList}\small\item\em printf Double\+Array pretty (instead of print\+Vector) \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{matrix_8h_aa1c719c9ddd701c765d939e3bb098c12}{create\+Random\+Double\+Array}} (unsigned int length)
+\begin{DoxyCompactList}\small\item\em Create a Double\+Array object in HEAP. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{matrix_8h_a3b01d4ddd23163d51362fd9ea2a0362a}{read\+In\+Double\+Vector\+Data}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec, const char $\ast$filepath)
+\begin{DoxyCompactList}\small\item\em read in \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} data from file \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{matrix_8h_a1bff7ec276f2ddd6b969bccca18fe4db}{write\+Out\+Double\+Vector\+Data}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec, const char $\ast$filepath)
+\begin{DoxyCompactList}\small\item\em write data form \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} to file \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_a7d27d1c73c535a7bce5c8aeb9887a6d4}{create\+Double\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} object (HEAP INI\+\_\+\+CAPACITY) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_a833a70c2b2fbac549657c80914c76ced}{create\+Double\+Vector\+Of\+Length}} (size\+\_\+t length, double value)
+\begin{DoxyCompactList}\small\item\em Create a Double Vector Of Length object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_abe12000b1ae05f53fb0491146c1a7edd}{create\+Random\+Double\+Vector\+Of\+Length}} (size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Create a Random Double Vector object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$ \mbox{\hyperlink{matrix_8h_afd5be6da05bd84e22bcc38807f6c18f8}{clone\+Matrix}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em return copy of matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_afc8fd617f5294eb8bfb3628fde25b8fa}{expand\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em expand allocate memory in HEAP with another INIT\+\_\+\+CAPACITY \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_a048c839f67704e1f4da33549979eb21e}{shrink\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em shrink allocate memory in HEAP \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_aa54e22d85cf9bb3c39af9aafa0df47e0}{push\+Value}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec, double value)
+\begin{DoxyCompactList}\small\item\em push (add) new value to vector vec \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{matrix_8h_a0faad1bb58b1523bdbd2bf835f630b29}{pop\+Value}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em pop (get) last element if \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} vec \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{matrix_8h_a282f7b00d67139299df39299b81f4f11}{mean\+Of\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em return mean of Vector vec \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{matrix_8h_a4071a9f4319692110356c63e93f48a76}{min\+Of\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em return min of Vector vec \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{matrix_8h_ac926af2836521c99f92ce1559baafdfe}{max\+Of\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em return max of Vector vec \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_af0d9f8f35f634427cc9d24199efccea5}{add\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec1, \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec2)
+\begin{DoxyCompactList}\small\item\em add Vector vec1 with Vector vec2 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_ae7aaffbe78b46a295a80a6929caddc90}{sub\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec1, \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec2)
+\begin{DoxyCompactList}\small\item\em sub Vector vec1 from Vector vec2 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_abe2f493f58cdd3beaf52d61d0699bedc}{multiply\+Scalar\+To\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec, double scalar)
+\begin{DoxyCompactList}\small\item\em multiply each element of Vector vec1 with a scalar \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_a17df550e4ec4398a45f8f1bff689e3e2}{divide\+Scalar\+To\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec, double scalar)
+\begin{DoxyCompactList}\small\item\em divied each element of Vector vec1 with a scalar \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{matrix_8h_a6c0eedb8d9e38305daefd8c5930f35c8}{multiply\+Double\+Vectors}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec1, \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec2)
+\begin{DoxyCompactList}\small\item\em Multiply Vector v1 with Vectot v2 -- dot product! \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_ac2d99e1ce23b0f0b24b9ec4831179f7c}{free\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em free memory of \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_a5fcbba988970c0364a7602b9d732b9ab}{print\+Double\+Vector}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em printf Double\+Array pretty \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$ \mbox{\hyperlink{matrix_8h_a03ea9dc4e77cc8be9065ec372fb5165f}{new\+Double\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em create an empty Double Matrix Object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$ \mbox{\hyperlink{matrix_8h_a5a0f498e0bd15ca63f6bcdf78daee210}{create\+Double\+Matrix}} (size\+\_\+t rows, size\+\_\+t cols)
+\begin{DoxyCompactList}\small\item\em Create a zero Double Matrix object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$ \mbox{\hyperlink{matrix_8h_a1d4b68e4996dbbf5a1e537d7452849c3}{create\+Random\+Double\+Matrix}} (size\+\_\+t rows, size\+\_\+t cols)
+\begin{DoxyCompactList}\small\item\em Create a Random Double Matrix object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$ \mbox{\hyperlink{matrix_8h_a27752d4d65f0b3f96cab1ac861e8a895}{create\+Identity\+Matrix}} (size\+\_\+t rows)
+\begin{DoxyCompactList}\small\item\em Create a Identity object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$ \mbox{\hyperlink{matrix_8h_a8050be05cb8524210e29b7d888b9afae}{set\+Array\+To\+Matrix}} (size\+\_\+t rows, size\+\_\+t cols, double array\mbox{[}rows\mbox{]}\mbox{[}cols\mbox{]})
+\begin{DoxyCompactList}\small\item\em Set the Array To Matrix object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_a73f3d5e5bf6903d2570dcb3f16114599}{push\+Column}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat, \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$col\+\_\+vec)
+\begin{DoxyCompactList}\small\item\em push (add) a column vector to matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_aaba46ac4f40b6f79c3c9658dddd3c0ca}{push\+Row}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat, \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$row\+\_\+vec)
+\begin{DoxyCompactList}\small\item\em push (add) a row vector to matrix \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_a8f93fadab411a17a03b46974a005eacd}{pop\+Column}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat)
+\begin{DoxyCompactList}\small\item\em pop last column of Matrix mat \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_a7893f420480cabc9ee71edcf546107cd}{pop\+Row}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat)
+\begin{DoxyCompactList}\small\item\em pop last row of Matrix mat \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_accedbc33943a81b687ff588ffd5d8ff7}{free\+Double\+Matrix}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat)
+\begin{DoxyCompactList}\small\item\em free memory of \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_af6972338e8544c0d0627da6f078023d9}{print\+Double\+Matrix}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$matrix)
+\begin{DoxyCompactList}\small\item\em printf \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} pretty \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_aa713f613828b2a22d2baa1fbfbd6e4c3}{get\+Row\+Vector}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat, size\+\_\+t row)
+\begin{DoxyCompactList}\small\item\em Get the Row Vector object of Row row. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_a20352fd94f049ddbde3788ac5ddd1208}{get\+Column\+Vector}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat, size\+\_\+t column)
+\begin{DoxyCompactList}\small\item\em Get the Column Vector object. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{matrix_8h_a6680b8724d07dd6c05ac1b48036f7ed7}{show\+Row\+Vector}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat, size\+\_\+t row)
+\begin{DoxyCompactList}\small\item\em retrun adress of row vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_af1c93f3863244430099fccad52997f19}{scalar\+Multiply}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat, double scalar)
+\begin{DoxyCompactList}\small\item\em multiply scalar with each cell of matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_a7a5910d13b5607122e5df83c0427e68c}{transpose}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat)
+\begin{DoxyCompactList}\small\item\em transpose matrix mat \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$ \mbox{\hyperlink{matrix_8h_a13cb5e451c174e4f881752dad1b5e51e}{multiply\+Double\+Matrices}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$m1, \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$m2)
+\begin{DoxyCompactList}\small\item\em Matrix Multiplication of two matrices m1 x m2. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$ \mbox{\hyperlink{matrix_8h_abb46f7887f5ad89d92f6fde616e7b011}{multiply\+Vector\+Matrix}} (\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$vec, \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$mat)
+\begin{DoxyCompactList}\small\item\em Vector Matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{matrix_8h_a1d4cbfc19270a6562c8e3011f6c86706}{are\+Equal\+Double\+Matrices}} (\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$m1, \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$m2)
+\begin{DoxyCompactList}\small\item\em check if two matrices are equal \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{matrix_8h_a473bfa9effa3ffc6568180e2ea32ea73}\label{matrix_8h_a473bfa9effa3ffc6568180e2ea32ea73}} 
+double {\bfseries vector\+\_\+multiply} (double $\ast$col, double $\ast$row, size\+\_\+t length)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Uwe Röttgermann (\href{mailto:uwe@roettgermann.de}{\texttt{ uwe@roettgermann.\+de}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+18-\/04-\/2021
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{matrix_8h_af0d9f8f35f634427cc9d24199efccea5}\label{matrix_8h_af0d9f8f35f634427cc9d24199efccea5}} 
+\index{matrix.h@{matrix.h}!addDoubleVector@{addDoubleVector}}
+\index{addDoubleVector@{addDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{addDoubleVector()}{addDoubleVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ add\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec1,  }\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec2 }\end{DoxyParamCaption})}
+
+
+
+add Vector vec1 with Vector vec2 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & \\
+\hline
+{\em vec2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a1d4cbfc19270a6562c8e3011f6c86706}\label{matrix_8h_a1d4cbfc19270a6562c8e3011f6c86706}} 
+\index{matrix.h@{matrix.h}!areEqualDoubleMatrices@{areEqualDoubleMatrices}}
+\index{areEqualDoubleMatrices@{areEqualDoubleMatrices}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{areEqualDoubleMatrices()}{areEqualDoubleMatrices()}}
+{\footnotesize\ttfamily bool are\+Equal\+Double\+Matrices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{m1,  }\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{m2 }\end{DoxyParamCaption})}
+
+
+
+check if two matrices are equal 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m1} & \\
+\hline
+{\em m2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_afd5be6da05bd84e22bcc38807f6c18f8}\label{matrix_8h_afd5be6da05bd84e22bcc38807f6c18f8}} 
+\index{matrix.h@{matrix.h}!cloneMatrix@{cloneMatrix}}
+\index{cloneMatrix@{cloneMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{cloneMatrix()}{cloneMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}}$\ast$ clone\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+return copy of matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Matrix$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a5a0f498e0bd15ca63f6bcdf78daee210}\label{matrix_8h_a5a0f498e0bd15ca63f6bcdf78daee210}} 
+\index{matrix.h@{matrix.h}!createDoubleMatrix@{createDoubleMatrix}}
+\index{createDoubleMatrix@{createDoubleMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{createDoubleMatrix()}{createDoubleMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}}$\ast$ create\+Double\+Matrix (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{cols }\end{DoxyParamCaption})}
+
+
+
+Create a zero Double Matrix object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & \\
+\hline
+{\em cols} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Matrix$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a7d27d1c73c535a7bce5c8aeb9887a6d4}\label{matrix_8h_a7d27d1c73c535a7bce5c8aeb9887a6d4}} 
+\index{matrix.h@{matrix.h}!createDoubleVector@{createDoubleVector}}
+\index{createDoubleVector@{createDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{createDoubleVector()}{createDoubleVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ create\+Double\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} object (HEAP INI\+\_\+\+CAPACITY) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a833a70c2b2fbac549657c80914c76ced}\label{matrix_8h_a833a70c2b2fbac549657c80914c76ced}} 
+\index{matrix.h@{matrix.h}!createDoubleVectorOfLength@{createDoubleVectorOfLength}}
+\index{createDoubleVectorOfLength@{createDoubleVectorOfLength}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{createDoubleVectorOfLength()}{createDoubleVectorOfLength()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ create\+Double\+Vector\+Of\+Length (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{length,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Create a Double Vector Of Length object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a27752d4d65f0b3f96cab1ac861e8a895}\label{matrix_8h_a27752d4d65f0b3f96cab1ac861e8a895}} 
+\index{matrix.h@{matrix.h}!createIdentityMatrix@{createIdentityMatrix}}
+\index{createIdentityMatrix@{createIdentityMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{createIdentityMatrix()}{createIdentityMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}}$\ast$ create\+Identity\+Matrix (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows }\end{DoxyParamCaption})}
+
+
+
+Create a Identity object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Matrix$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_aa1c719c9ddd701c765d939e3bb098c12}\label{matrix_8h_aa1c719c9ddd701c765d939e3bb098c12}} 
+\index{matrix.h@{matrix.h}!createRandomDoubleArray@{createRandomDoubleArray}}
+\index{createRandomDoubleArray@{createRandomDoubleArray}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{createRandomDoubleArray()}{createRandomDoubleArray()}}
+{\footnotesize\ttfamily double$\ast$ create\+Random\+Double\+Array (\begin{DoxyParamCaption}\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+Create a Double\+Array object in HEAP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a1d4b68e4996dbbf5a1e537d7452849c3}\label{matrix_8h_a1d4b68e4996dbbf5a1e537d7452849c3}} 
+\index{matrix.h@{matrix.h}!createRandomDoubleMatrix@{createRandomDoubleMatrix}}
+\index{createRandomDoubleMatrix@{createRandomDoubleMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{createRandomDoubleMatrix()}{createRandomDoubleMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}}$\ast$ create\+Random\+Double\+Matrix (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{cols }\end{DoxyParamCaption})}
+
+
+
+Create a Random Double Matrix object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+rows} & \\
+\hline
+{\em num\+\_\+cols} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double$\ast$$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_abe12000b1ae05f53fb0491146c1a7edd}\label{matrix_8h_abe12000b1ae05f53fb0491146c1a7edd}} 
+\index{matrix.h@{matrix.h}!createRandomDoubleVectorOfLength@{createRandomDoubleVectorOfLength}}
+\index{createRandomDoubleVectorOfLength@{createRandomDoubleVectorOfLength}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{createRandomDoubleVectorOfLength()}{createRandomDoubleVectorOfLength()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ create\+Random\+Double\+Vector\+Of\+Length (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+Create a Random Double Vector object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a17df550e4ec4398a45f8f1bff689e3e2}\label{matrix_8h_a17df550e4ec4398a45f8f1bff689e3e2}} 
+\index{matrix.h@{matrix.h}!divideScalarToVector@{divideScalarToVector}}
+\index{divideScalarToVector@{divideScalarToVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{divideScalarToVector()}{divideScalarToVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ divide\+Scalar\+To\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec,  }\item[{double}]{scalar }\end{DoxyParamCaption})}
+
+
+
+divied each element of Vector vec1 with a scalar 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+{\em scalar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_afc8fd617f5294eb8bfb3628fde25b8fa}\label{matrix_8h_afc8fd617f5294eb8bfb3628fde25b8fa}} 
+\index{matrix.h@{matrix.h}!expandDoubleVector@{expandDoubleVector}}
+\index{expandDoubleVector@{expandDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{expandDoubleVector()}{expandDoubleVector()}}
+{\footnotesize\ttfamily void expand\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+
+
+expand allocate memory in HEAP with another INIT\+\_\+\+CAPACITY 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_accedbc33943a81b687ff588ffd5d8ff7}\label{matrix_8h_accedbc33943a81b687ff588ffd5d8ff7}} 
+\index{matrix.h@{matrix.h}!freeDoubleMatrix@{freeDoubleMatrix}}
+\index{freeDoubleMatrix@{freeDoubleMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{freeDoubleMatrix()}{freeDoubleMatrix()}}
+{\footnotesize\ttfamily void free\+Double\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat }\end{DoxyParamCaption})}
+
+
+
+free memory of \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_ac2d99e1ce23b0f0b24b9ec4831179f7c}\label{matrix_8h_ac2d99e1ce23b0f0b24b9ec4831179f7c}} 
+\index{matrix.h@{matrix.h}!freeDoubleVector@{freeDoubleVector}}
+\index{freeDoubleVector@{freeDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{freeDoubleVector()}{freeDoubleVector()}}
+{\footnotesize\ttfamily void free\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+
+
+free memory of \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a20352fd94f049ddbde3788ac5ddd1208}\label{matrix_8h_a20352fd94f049ddbde3788ac5ddd1208}} 
+\index{matrix.h@{matrix.h}!getColumnVector@{getColumnVector}}
+\index{getColumnVector@{getColumnVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{getColumnVector()}{getColumnVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ get\+Column\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat,  }\item[{size\+\_\+t}]{column }\end{DoxyParamCaption})}
+
+
+
+Get the Column Vector object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+{\em column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_aa713f613828b2a22d2baa1fbfbd6e4c3}\label{matrix_8h_aa713f613828b2a22d2baa1fbfbd6e4c3}} 
+\index{matrix.h@{matrix.h}!getRowVector@{getRowVector}}
+\index{getRowVector@{getRowVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{getRowVector()}{getRowVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ get\+Row\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat,  }\item[{size\+\_\+t}]{row }\end{DoxyParamCaption})}
+
+
+
+Get the Row Vector object of Row row. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+{\em row} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_ac926af2836521c99f92ce1559baafdfe}\label{matrix_8h_ac926af2836521c99f92ce1559baafdfe}} 
+\index{matrix.h@{matrix.h}!maxOfDoubleVector@{maxOfDoubleVector}}
+\index{maxOfDoubleVector@{maxOfDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{maxOfDoubleVector()}{maxOfDoubleVector()}}
+{\footnotesize\ttfamily double max\+Of\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+
+
+return max of Vector vec 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a282f7b00d67139299df39299b81f4f11}\label{matrix_8h_a282f7b00d67139299df39299b81f4f11}} 
+\index{matrix.h@{matrix.h}!meanOfDoubleVector@{meanOfDoubleVector}}
+\index{meanOfDoubleVector@{meanOfDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{meanOfDoubleVector()}{meanOfDoubleVector()}}
+{\footnotesize\ttfamily double mean\+Of\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+
+
+return mean of Vector vec 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a4071a9f4319692110356c63e93f48a76}\label{matrix_8h_a4071a9f4319692110356c63e93f48a76}} 
+\index{matrix.h@{matrix.h}!minOfDoubleVector@{minOfDoubleVector}}
+\index{minOfDoubleVector@{minOfDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{minOfDoubleVector()}{minOfDoubleVector()}}
+{\footnotesize\ttfamily double min\+Of\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+
+
+return min of Vector vec 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a13cb5e451c174e4f881752dad1b5e51e}\label{matrix_8h_a13cb5e451c174e4f881752dad1b5e51e}} 
+\index{matrix.h@{matrix.h}!multiplyDoubleMatrices@{multiplyDoubleMatrices}}
+\index{multiplyDoubleMatrices@{multiplyDoubleMatrices}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{multiplyDoubleMatrices()}{multiplyDoubleMatrices()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}}$\ast$ multiply\+Double\+Matrices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{m1,  }\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{m2 }\end{DoxyParamCaption})}
+
+
+
+Matrix Multiplication of two matrices m1 x m2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m1} & \\
+\hline
+{\em m2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Matrix$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a6c0eedb8d9e38305daefd8c5930f35c8}\label{matrix_8h_a6c0eedb8d9e38305daefd8c5930f35c8}} 
+\index{matrix.h@{matrix.h}!multiplyDoubleVectors@{multiplyDoubleVectors}}
+\index{multiplyDoubleVectors@{multiplyDoubleVectors}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{multiplyDoubleVectors()}{multiplyDoubleVectors()}}
+{\footnotesize\ttfamily double multiply\+Double\+Vectors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec1,  }\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec2 }\end{DoxyParamCaption})}
+
+
+
+Multiply Vector v1 with Vectot v2 -- dot product! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & \\
+\hline
+{\em row} & \\
+\hline
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_abe2f493f58cdd3beaf52d61d0699bedc}\label{matrix_8h_abe2f493f58cdd3beaf52d61d0699bedc}} 
+\index{matrix.h@{matrix.h}!multiplyScalarToVector@{multiplyScalarToVector}}
+\index{multiplyScalarToVector@{multiplyScalarToVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{multiplyScalarToVector()}{multiplyScalarToVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ multiply\+Scalar\+To\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec,  }\item[{double}]{scalar }\end{DoxyParamCaption})}
+
+
+
+multiply each element of Vector vec1 with a scalar 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+{\em scalar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_abb46f7887f5ad89d92f6fde616e7b011}\label{matrix_8h_abb46f7887f5ad89d92f6fde616e7b011}} 
+\index{matrix.h@{matrix.h}!multiplyVectorMatrix@{multiplyVectorMatrix}}
+\index{multiplyVectorMatrix@{multiplyVectorMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{multiplyVectorMatrix()}{multiplyVectorMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ multiply\+Vector\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec,  }\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat }\end{DoxyParamCaption})}
+
+
+
+Vector Matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+{\em mat} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a03ea9dc4e77cc8be9065ec372fb5165f}\label{matrix_8h_a03ea9dc4e77cc8be9065ec372fb5165f}} 
+\index{matrix.h@{matrix.h}!newDoubleMatrix@{newDoubleMatrix}}
+\index{newDoubleMatrix@{newDoubleMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{newDoubleMatrix()}{newDoubleMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}}$\ast$ new\+Double\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+create an empty Double Matrix Object 
+
+\begin{DoxyReturn}{Returns}
+Double\+Matrix$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a8f93fadab411a17a03b46974a005eacd}\label{matrix_8h_a8f93fadab411a17a03b46974a005eacd}} 
+\index{matrix.h@{matrix.h}!popColumn@{popColumn}}
+\index{popColumn@{popColumn}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{popColumn()}{popColumn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ pop\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat }\end{DoxyParamCaption})}
+
+
+
+pop last column of Matrix mat 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a7893f420480cabc9ee71edcf546107cd}\label{matrix_8h_a7893f420480cabc9ee71edcf546107cd}} 
+\index{matrix.h@{matrix.h}!popRow@{popRow}}
+\index{popRow@{popRow}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{popRow()}{popRow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ pop\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat }\end{DoxyParamCaption})}
+
+
+
+pop last row of Matrix mat 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a0faad1bb58b1523bdbd2bf835f630b29}\label{matrix_8h_a0faad1bb58b1523bdbd2bf835f630b29}} 
+\index{matrix.h@{matrix.h}!popValue@{popValue}}
+\index{popValue@{popValue}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{popValue()}{popValue()}}
+{\footnotesize\ttfamily double pop\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+
+
+pop (get) last element if \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} vec 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a6485818a08ca314b03176a58881760ef}\label{matrix_8h_a6485818a08ca314b03176a58881760ef}} 
+\index{matrix.h@{matrix.h}!printDoubleArray@{printDoubleArray}}
+\index{printDoubleArray@{printDoubleArray}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{printDoubleArray()}{printDoubleArray()}}
+{\footnotesize\ttfamily void print\+Double\+Array (\begin{DoxyParamCaption}\item[{double $\ast$}]{p\+\_\+array,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+printf Double\+Array pretty (instead of print\+Vector) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+array} & \\
+\hline
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_af6972338e8544c0d0627da6f078023d9}\label{matrix_8h_af6972338e8544c0d0627da6f078023d9}} 
+\index{matrix.h@{matrix.h}!printDoubleMatrix@{printDoubleMatrix}}
+\index{printDoubleMatrix@{printDoubleMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{printDoubleMatrix()}{printDoubleMatrix()}}
+{\footnotesize\ttfamily void print\+Double\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{matrix }\end{DoxyParamCaption})}
+
+
+
+printf \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} pretty 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+cols} & \\
+\hline
+{\em num\+\_\+rows} & \\
+\hline
+{\em matrix} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_a5fcbba988970c0364a7602b9d732b9ab}\label{matrix_8h_a5fcbba988970c0364a7602b9d732b9ab}} 
+\index{matrix.h@{matrix.h}!printDoubleVector@{printDoubleVector}}
+\index{printDoubleVector@{printDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{printDoubleVector()}{printDoubleVector()}}
+{\footnotesize\ttfamily void print\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+
+
+printf Double\+Array pretty 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Double\+Vector$\ast$} & vec \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_a73f3d5e5bf6903d2570dcb3f16114599}\label{matrix_8h_a73f3d5e5bf6903d2570dcb3f16114599}} 
+\index{matrix.h@{matrix.h}!pushColumn@{pushColumn}}
+\index{pushColumn@{pushColumn}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{pushColumn()}{pushColumn()}}
+{\footnotesize\ttfamily void push\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat,  }\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{col\+\_\+vec }\end{DoxyParamCaption})}
+
+
+
+push (add) a column vector to matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+{\em col\+\_\+vec} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_aaba46ac4f40b6f79c3c9658dddd3c0ca}\label{matrix_8h_aaba46ac4f40b6f79c3c9658dddd3c0ca}} 
+\index{matrix.h@{matrix.h}!pushRow@{pushRow}}
+\index{pushRow@{pushRow}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{pushRow()}{pushRow()}}
+{\footnotesize\ttfamily void push\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat,  }\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{row\+\_\+vec }\end{DoxyParamCaption})}
+
+
+
+push (add) a row vector to matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+{\em row\+\_\+vec} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_aa54e22d85cf9bb3c39af9aafa0df47e0}\label{matrix_8h_aa54e22d85cf9bb3c39af9aafa0df47e0}} 
+\index{matrix.h@{matrix.h}!pushValue@{pushValue}}
+\index{pushValue@{pushValue}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{pushValue()}{pushValue()}}
+{\footnotesize\ttfamily void push\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+push (add) new value to vector vec 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_ab23f4807ffc22bddc1473401d7ff6df9}\label{matrix_8h_ab23f4807ffc22bddc1473401d7ff6df9}} 
+\index{matrix.h@{matrix.h}!randomNumber@{randomNumber}}
+\index{randomNumber@{randomNumber}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{randomNumber()}{randomNumber()}}
+{\footnotesize\ttfamily double random\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return random number between 0 ... 1 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a3b01d4ddd23163d51362fd9ea2a0362a}\label{matrix_8h_a3b01d4ddd23163d51362fd9ea2a0362a}} 
+\index{matrix.h@{matrix.h}!readInDoubleVectorData@{readInDoubleVectorData}}
+\index{readInDoubleVectorData@{readInDoubleVectorData}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{readInDoubleVectorData()}{readInDoubleVectorData()}}
+{\footnotesize\ttfamily int read\+In\+Double\+Vector\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec,  }\item[{const char $\ast$}]{filepath }\end{DoxyParamCaption})}
+
+
+
+read in \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} data from file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+{\em filepath} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int (\textquotesingle{}0\textquotesingle{} sucessfull) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_af1c93f3863244430099fccad52997f19}\label{matrix_8h_af1c93f3863244430099fccad52997f19}} 
+\index{matrix.h@{matrix.h}!scalarMultiply@{scalarMultiply}}
+\index{scalarMultiply@{scalarMultiply}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{scalarMultiply()}{scalarMultiply()}}
+{\footnotesize\ttfamily void scalar\+Multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat,  }\item[{double}]{scalar }\end{DoxyParamCaption})}
+
+
+
+multiply scalar with each cell of matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+{\em scalar} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_a8050be05cb8524210e29b7d888b9afae}\label{matrix_8h_a8050be05cb8524210e29b7d888b9afae}} 
+\index{matrix.h@{matrix.h}!setArrayToMatrix@{setArrayToMatrix}}
+\index{setArrayToMatrix@{setArrayToMatrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{setArrayToMatrix()}{setArrayToMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}}$\ast$ set\+Array\+To\+Matrix (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{cols,  }\item[{double}]{array\mbox{[}rows\mbox{]}\mbox{[}cols\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Set the Array To Matrix object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & \\
+\hline
+{\em cols} & \\
+\hline
+{\em array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Matrix$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a6680b8724d07dd6c05ac1b48036f7ed7}\label{matrix_8h_a6680b8724d07dd6c05ac1b48036f7ed7}} 
+\index{matrix.h@{matrix.h}!showRowVector@{showRowVector}}
+\index{showRowVector@{showRowVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{showRowVector()}{showRowVector()}}
+{\footnotesize\ttfamily double$\ast$ show\+Row\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat,  }\item[{size\+\_\+t}]{row }\end{DoxyParamCaption})}
+
+
+
+retrun adress of row vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+{\em row} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a048c839f67704e1f4da33549979eb21e}\label{matrix_8h_a048c839f67704e1f4da33549979eb21e}} 
+\index{matrix.h@{matrix.h}!shrinkDoubleVector@{shrinkDoubleVector}}
+\index{shrinkDoubleVector@{shrinkDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{shrinkDoubleVector()}{shrinkDoubleVector()}}
+{\footnotesize\ttfamily void shrink\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+
+
+shrink allocate memory in HEAP 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8h_ae7aaffbe78b46a295a80a6929caddc90}\label{matrix_8h_ae7aaffbe78b46a295a80a6929caddc90}} 
+\index{matrix.h@{matrix.h}!subDoubleVector@{subDoubleVector}}
+\index{subDoubleVector@{subDoubleVector}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{subDoubleVector()}{subDoubleVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_double_vector}{Double\+Vector}}$\ast$ sub\+Double\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec1,  }\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec2 }\end{DoxyParamCaption})}
+
+
+
+sub Vector vec1 from Vector vec2 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & \\
+\hline
+{\em vec2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double\+Vector$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a7a5910d13b5607122e5df83c0427e68c}\label{matrix_8h_a7a5910d13b5607122e5df83c0427e68c}} 
+\index{matrix.h@{matrix.h}!transpose@{transpose}}
+\index{transpose@{transpose}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily void transpose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_matrix}{Double\+Matrix}} $\ast$}]{mat }\end{DoxyParamCaption})}
+
+
+
+transpose matrix mat 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8h_a1bff7ec276f2ddd6b969bccca18fe4db}\label{matrix_8h_a1bff7ec276f2ddd6b969bccca18fe4db}} 
+\index{matrix.h@{matrix.h}!writeOutDoubleVectorData@{writeOutDoubleVectorData}}
+\index{writeOutDoubleVectorData@{writeOutDoubleVectorData}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{writeOutDoubleVectorData()}{writeOutDoubleVectorData()}}
+{\footnotesize\ttfamily int write\+Out\+Double\+Vector\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_double_vector}{Double\+Vector}} $\ast$}]{vec,  }\item[{const char $\ast$}]{filepath }\end{DoxyParamCaption})}
+
+
+
+write data form \mbox{\hyperlink{struct_double_vector}{Double\+Vector}} to file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+{\em filepath} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
