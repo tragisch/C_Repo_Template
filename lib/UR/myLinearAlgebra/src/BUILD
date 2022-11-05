@@ -8,5 +8,5 @@ cc_library(
 cc_binary(
     name = "example_matrix",
     srcs = ["example_matrix.c"],
-    deps = ["//modules/myLinearAlgebra/src:matrix"],
+    deps = ["//lib/UR/myLinearAlgebra/src:matrix"],
 )

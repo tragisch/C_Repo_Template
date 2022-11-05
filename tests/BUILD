@@ -1,8 +1,8 @@
 cc_test(
-    name = "hello_test",
-    srcs = ["hello_test.cc"],
+    name = "test",
+    srcs = ["test_armstrong_numbers.c"],
     deps = [
-        "//src/lib:all_libs",
-        "@com_google_googletest//:gtest_main",
+        "//src:all_libs",
+        "@Unity//:unity",
     ],
 )

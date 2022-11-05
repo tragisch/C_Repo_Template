@@ -8,5 +8,5 @@ cc_library(
 cc_binary(
     name = "example_llist",
     srcs = ["example_llist.c"],
-    deps = ["//modules/llist"],
+    deps = ["//lib/llist"],
 )

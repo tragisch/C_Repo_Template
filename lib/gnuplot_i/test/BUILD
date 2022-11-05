@@ -4,7 +4,7 @@ cc_binary(
     name = "anim",
     srcs = ["anim.c"],
     deps = [
-        "//modules/gnuplot_i/src:gnuplot_i",
+        "//lib/gnuplot_i/src:gnuplot_i",
     ],
 )
 
@@ -14,7 +14,7 @@ cc_binary(
         "example.c",
     ],
     deps = [
-        "//modules/gnuplot_i/src:gnuplot_i",
+        "//lib/gnuplot_i/src:gnuplot_i",
     ],
 )
 
@@ -24,6 +24,6 @@ cc_binary(
         "sinepng.c",
     ],
     deps = [
-        "//modules/gnuplot_i/src:gnuplot_i",
+        "//lib/gnuplot_i/src:gnuplot_i",
     ],
 )

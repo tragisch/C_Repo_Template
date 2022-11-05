@@ -3,13 +3,11 @@
         "main"
     ],
     "C_Cpp.errorSquiggles": "Enabled",
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#d98c0f",
-        "titleBar.activeBackground": "#2B470E",
-        "titleBar.activeForeground": "#F7FCF1"
-    },
     "files.associations": {
         "glib.h": "c",
-        "gslist.h": "c"
+        "gslist.h": "c",
+        "cmocka.h": "c",
+        "cmocka_private.h": "c",
+        "armstrong_numbers.h": "c"
     }
 }

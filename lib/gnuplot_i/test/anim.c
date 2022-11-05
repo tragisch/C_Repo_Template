@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "modules/gnuplot_i/src/gnuplot_i.h"
+#include "lib/gnuplot_i/src/gnuplot_i.h"
 
 #define SLEEP_LGTH 1
 
