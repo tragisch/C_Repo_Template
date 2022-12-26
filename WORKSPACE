@@ -1,5 +1,10 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+######## HTTP_ARCHIVE:
+
+# Simple Unit Testing for C
+# https://github.com/ThrowTheSwitch/Unity/archive/v2.5.2.zip
+# LICENSE: MIT
 http_archive(
     name = "Unity",
     build_file = "@//:packages/http/ThrowTheSwitch/Unity/unity.BUILD",
@@ -10,13 +15,15 @@ http_archive(
     ],
 )
 
-new_http_archive(
+http_archive(
     name = "CMock",
-    build_file = "@@//:packages/http/ThrowTheSwitch/CMock/cmock.BUILD",
+    build_file = "@//:packages/http/ThrowTheSwitch/CMock/cmock.BUILD",
     sha256 = "f342b8296aa934acfa3310a015938901e7df40ff7f5041c0ef3f5e6b13580207",
     strip_prefix = "CMock-2.5.3",
     url = "https://github.com/ThrowTheSwitch/CMock/archive/refs/tags/v2.5.3.zip",
 )
+
+########## LOCAL REPOSITORIES (e.g. BREW)
 
 # stellt Standdard Datenstrukturen zur Verfügung (mit Brew installiert.)
 new_local_repository(
