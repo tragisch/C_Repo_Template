@@ -14,10 +14,3 @@ cc_library(
     includes = ["include"],
     visibility = ["//visibility:public"],
 )
-
-cc_library(
-    name = "hello",
-    srcs = ["hello.c"],
-    hdrs = ["include/hello.h"],
-    visibility = ["//visibility:public"],
-)
