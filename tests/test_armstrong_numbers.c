@@ -1,5 +1,5 @@
-#include "src/include/armstrong_numbers.h"
-#include "tools/ThrowTheSwitch/Unity/lib/unity.h"
+#include "armstrong_numbers.h"
+#include "unity.h"
 
 void setUp(void) {}
 

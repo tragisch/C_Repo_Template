@@ -11,6 +11,7 @@ cc_library(
     name = "all_libs",
     srcs = glob(["*.c"]),
     hdrs = glob(["**/*.h"]),
+    includes = ["include"],
     visibility = ["//visibility:public"],
 )
 

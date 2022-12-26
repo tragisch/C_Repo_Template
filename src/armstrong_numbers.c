@@ -1,4 +1,4 @@
-#include "include/armstrong_numbers.h"
+#include "armstrong_numbers.h"
 
 bool is_armstrong_number(int candidate) {
   int r, sum = 0, temp;
