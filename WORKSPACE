@@ -1,16 +1,14 @@
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
 # http_archive(
 #     name = "com_google_googletest",
 #     strip_prefix = "googletest-609281088cfefc76f9d0ce82e1ff6c30cc3591e5",
 #     urls = ["https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip"],
 # )
 
-http_archive(
-    name = "Unity",
-    build_file = "@//tests:unity.BUILD",
-    urls = ["https://github.com/ThrowTheSwitch/Unity/archive/master.tar.gz"],
-)
+# http_archive(
+#     name = "Unity",
+#     build_file = "@//tests:unity.BUILD",
+#     urls = ["https://github.com/ThrowTheSwitch/Unity/archive/master.tar.gz"],
+# )
 
 # stellt Standdard Datenstrukturen zur Verfügung (mit Brew installiert.)
 new_local_repository(
