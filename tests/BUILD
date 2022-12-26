@@ -3,6 +3,6 @@ cc_test(
     srcs = ["test_armstrong_numbers.c"],
     deps = [
         "//src:all_libs",
-        "@Unity//:unity",
+        "//tools/ThrowTheSwitch/Unity/lib:UnityC",
     ],
 )
