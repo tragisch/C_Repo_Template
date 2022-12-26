@@ -8,6 +8,7 @@
         "gslist.h": "c",
         "cmocka.h": "c",
         "cmocka_private.h": "c",
-        "armstrong_numbers.h": "c"
+        "armstrong_numbers.h": "c",
+        "unity.h": "c"
     }
 }

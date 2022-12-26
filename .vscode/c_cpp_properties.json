@@ -5,6 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/src/include/**",
+                "${workspaceFolder}/lib/UR/**",
+                "${workspaceFolder}/tools/ThrowTheSwitch/Unity/**",
+                "${workspaceFolder}/tools/ThrowTheSwitch/CException/lib/*",
                 "/opt/homebrew/Cellar/glib/2.74.0/**"
             ],
             "defines": [],
