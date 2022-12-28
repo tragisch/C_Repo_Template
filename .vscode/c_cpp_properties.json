@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/src/include/",
-                "${workspaceFolder}/lib/UR/**",
+                "${workspaceFolder}/lib/**",
+                "${workspaceFolder}/third_party/sources/CsvParser/src",
                 "${workspaceFolder}/bazel-00_C_Repo_Template/external/DoubleMatrix/src/include",
                 "${workspaceFolder}/bazel-00_C_Repo_Template/external/Unity/src",
                 "${workspaceFolder}/bazel-00_C_Repo_Template/external/CException/lib",
