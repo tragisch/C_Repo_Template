@@ -1,8 +1,9 @@
-
-def generate_test_runner(file_name, name = None, visibility = None, cexception = True):
+# buildifier: disable=no-effect
 """ 
 Use the helper scripts shipped with unity to generate a test runner for the specified file.
 """
+
+def generate_test_runner(file_name, name = None, visibility = None, cexception = True):
     if cexception:
         cmd = "ruby $(location @Unity//:TestRunnerGenerator) -cexception $(SRCS) $(OUTS)"
     else:
@@ -21,7 +22,6 @@ Use the helper scripts shipped with unity to generate a test runner for the spec
         visibility = visibility,
     )
 
-
 # buildifier: disable=no-effect
 """ This macro creates a cc_test rule and a genrule (that creates the test runner) for a given file.
 
@@ -31,6 +31,7 @@ Additional dependencies can be specified using the deps parameter.
 The source files for the test are only the *_Test.c that the user writes
 and the corresponding generated *_Test_Runner.c file.
 """
+
 def unity_test(
         file_name,
         name = [],
@@ -57,7 +58,6 @@ def unity_test(
         copts = copts,
         linkstatic = 1,
     )
-
 
 # i guess this could be done more elegant using the File class but it does what we want
 def strip_extension(file_name):
