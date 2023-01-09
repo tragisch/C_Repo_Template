@@ -29,15 +29,6 @@ http_archive(
     url = "https://github.com/ThrowTheSwitch/CMock/archive/refs/tags/v2.5.3.zip",
 )
 
-http_archive(
-    name = "DoubleMatrix",
-    build_file = "@//:third_party/http/DoubleMatrix/BUILD",
-    strip_prefix = "DoubleMatrix-master",
-    url = "https://github.com/tragisch/DoubleMatrix/archive/refs/heads/master.zip",
-    # sha256 = "";
-)
-
-
 ########## LOCAL REPOSITORIES (e.g. BREW)
 
 # stellt Standdard Datenstrukturen zur Verfügung (mit Brew installiert.)
