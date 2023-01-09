@@ -3,7 +3,7 @@ cc_binary(
     srcs = ["main.c"],
     visibility = ["//visibility:public"],
     deps = [
-        ":amrstrong_numbers",
+        ":armstrong_numbers",
     ],
 )
 
