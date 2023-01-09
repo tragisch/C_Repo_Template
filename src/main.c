@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "include/armstrong_numbers.h"
+#include "armstrong_numbers.h"
 
 int main() {
   int candidates[10] = {0, 9, 1, 4, 153, 188, 370, 371, 402, 407};

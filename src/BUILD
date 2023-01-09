@@ -3,14 +3,14 @@ cc_binary(
     srcs = ["main.c"],
     visibility = ["//visibility:public"],
     deps = [
-        "//src:all_libs",
+        ":amrstrong_numbers",
     ],
 )
 
 cc_library(
-    name = "all_libs",
-    srcs = glob(["*.c"]),
-    hdrs = glob(["**/*.h"]),
+    name = "armstrong_numbers",
+    srcs = ["armstrong_numbers.c"],
+    hdrs = ["include/armstrong_numbers.h"],
     includes = ["include"],
     visibility = ["//visibility:public"],
 )
