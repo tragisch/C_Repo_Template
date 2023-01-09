@@ -1,9 +1,10 @@
-cc_test(
-    name = "unity_test",
+load("//third_party/http/ThrowTheSwitch/Unity:unity.bzl", "unity_test")
+
+unity_test(
     size = "small",
-    srcs = ["test_armstrong_numbers.c"],
+    cexception = False,
+    file_name = "test_armstrong_numbers.c",
     deps = [
-        "//src:all_libs",
-        "@Unity",
+        "//src:armstrong_numbers",
     ],
 )
