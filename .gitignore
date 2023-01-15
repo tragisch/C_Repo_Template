@@ -90,8 +90,15 @@ Temporary Items
 /bazel-*
 /bazel.iml
 /output/
+/production
+/.sass-cache
+# Bazelisk version file
 .bazelversion
+# User-specific .bazelrc
 user.bazelrc
+
+
+
 
 /tmp/*
 
