@@ -10,5 +10,6 @@
         "cmocka_private.h": "c",
         "armstrong_numbers.h": "c",
         "unity.h": "c"
-    }
+    },
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json"
 }
