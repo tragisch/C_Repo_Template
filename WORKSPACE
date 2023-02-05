@@ -5,20 +5,20 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 ## https://github.com/hedronvision/bazel-compile-commands-extractor
 ##########################
 
-http_archive(
-    name = "hedron_compile_commands",
-    strip_prefix = "bazel-compile-commands-extractor-5bb5ff2f32d542a986033102af771aa4206387b9",
-    # 18594913275f4b70343d5003d03d8e1b
-    # Replace the commit hash in both places (below) with the latest, rather than using the stale one here.
-    # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
-    url = "https://github.com/hedronvision/bazel-compile-commands-extractor/archive/5bb5ff2f32d542a986033102af771aa4206387b9.tar.gz",
+# http_archive(
+#     name = "hedron_compile_commands",
+#     strip_prefix = "bazel-compile-commands-extractor-d3afb5dfadd4beca48bb027112d029f2d34ff0a0",
+#     # 18594913275f4b70343d5003d03d8e1b
+#     # Replace the commit hash in both places (below) with the latest, rather than using the stale one here.
+#     # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
+#     url = "https://github.com/hedronvision/bazel-compile-commands-extractor/archive/d3afb5dfadd4beca48bb027112d029f2d34ff0a0.tar.gz",
 
-    # When you first run this tool, it'll recommend a sha256 hash to put here with a message like: "DEBUG: Rule 'hedron_compile_commands' indicated that a canonical reproducible form can be obtained by modifying arguments sha256 = ..."
-)
+#     # When you first run this tool, it'll recommend a sha256 hash to put here with a message like: "DEBUG: Rule 'hedron_compile_commands' indicated that a canonical reproducible form can be obtained by modifying arguments sha256 = ..."
+# )
 
-load("@hedron_compile_commands//:workspace_setup.bzl", "hedron_compile_commands_setup")
+# load("@hedron_compile_commands//:workspace_setup.bzl", "hedron_compile_commands_setup")
 
-hedron_compile_commands_setup()
+# hedron_compile_commands_setup()
 
 ##########################
 ## Http Archives
@@ -81,5 +81,5 @@ http_archive(
 new_local_repository(
     name = "glib",
     build_file = "./third_party/brew/gnu-lib/glib.BUILD",
-    path = "/opt/homebrew/Cellar/glib/2.74.0",
+    path = "/opt/homebrew/Cellar/glib/2.74.4",
 )
