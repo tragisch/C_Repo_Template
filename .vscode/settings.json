@@ -2,6 +2,7 @@
     "bazel-cpp-tools.compileCommands.targets": [
         "main"
     ],
+    "C_Cpp.experimentalFeatures": "enabled",
     "C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
         "glib.h": "c",
@@ -9,7 +10,9 @@
         "cmocka.h": "c",
         "cmocka_private.h": "c",
         "armstrong_numbers.h": "c",
-        "unity.h": "c"
+        "unity.h": "c",
+        "locale": "c",
+        "string": "c"
     },
     "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json"
 }

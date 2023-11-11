@@ -7,7 +7,7 @@ cc_binary(
     ],
     copts = ["-Ideps/CsvParser/src"],
     deps = [
-        "//third_party/source/CsvParser/src:csvparser",
+        "//third_party/CsvParser/src:csvparser",
     ],
 )
 
@@ -18,6 +18,6 @@ cc_binary(
     ],
     copts = ["-Ideps/CsvParser/src"],
     deps = [
-        "//third_party/source/CsvParser/src:csvparser",
+        "//third_party/CsvParser/src:csvparser",
     ],
 )

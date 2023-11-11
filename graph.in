@@ -1,0 +1,10 @@
+digraph mygraph {
+  node [shape=box];
+  "//src:main"
+  "//src:main" -> "//src:main.c"
+  "//src:main" -> "//src:armstrong_numbers"
+  "//src:armstrong_numbers"
+  "//src:armstrong_numbers" -> "//src:include/armstrong_numbers.h\n//src:armstrong_numbers.c"
+  "//src:include/armstrong_numbers.h\n//src:armstrong_numbers.c"
+  "//src:main.c"
+}

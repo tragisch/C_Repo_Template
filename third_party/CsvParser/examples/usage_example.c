@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "../src/csvparser.h"
+#include "csvparser.h"
 
 int main() {
   int i = 0;

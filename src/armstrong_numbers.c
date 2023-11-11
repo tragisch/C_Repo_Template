@@ -1,5 +1,6 @@
 #include "armstrong_numbers.h"
 
+#include <stdint.h>
 #include <stdio.h>
 
 bool is_armstrong_number(int candidate) {
