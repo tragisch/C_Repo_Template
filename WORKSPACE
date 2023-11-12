@@ -55,10 +55,21 @@ http_archive(
     url = "https://github.com/doches/progressbar/archive/47bd67ee0e5bfa8510ec0aee0a2cafe197535050.zip",
 )
 
+# A minimal, zero-config, BSD licensed, readline replacement used in Redis,
+# MongoDB, and Android.
 http_archive(
     name = "linenoise",
     build_file = "@//:third_party/linenoise/src/BUILD",
     sha256 = "f5054a4fe120d43d85427cf58af93e56b9bb80389d507a9bec9b75531a340014",
     strip_prefix = "linenoise-1.0",
     url = "https://github.com/antirez/linenoise/archive/refs/tags/1.0.tar.gz",
+)
+
+# micro parster combinators (mpc) is a lightweight and powerful Parser Combinator library for C.
+http_archive(
+    name = "mpc",
+    build_file = "@//:third_party/mpc/src/BUILD",
+    sha256 = "da6e798accec57d7b0512ecc38adc151961adefde09811c1c25ee993a653e47c",
+    strip_prefix = "mpc-0.9.0",
+    url = "https://github.com/orangeduck/mpc/archive/refs/tags/0.9.0.tar.gz",
 )
