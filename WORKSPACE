@@ -45,13 +45,20 @@ http_archive(
     url = "https://github.com/eerimoq/dbg-macro/archive/refs/tags/0.12.1.zip",
 )
 
-##########################
-## LOCAL REPOSITORIES (e.g. BREW)
-##########################
+# progressbar is a C-class (it's a convention, dammit) for displaying
+# attractive progress bars on the command line.
+http_archive(
+    name = "progress_bar",
+    build_file = "@//:third_party/progress_bar/src/BUILD",
+    sha256 = "bb406d25f233910f5accdb583ccf42cd14e0044d2855d7eb0b895407068ee760",
+    strip_prefix = "progressbar-47bd67ee0e5bfa8510ec0aee0a2cafe197535050",
+    url = "https://github.com/doches/progressbar/archive/47bd67ee0e5bfa8510ec0aee0a2cafe197535050.zip",
+)
 
-# stellt Standdard Datenstrukturen zur Verfügung (mit Brew installiert.)
-new_local_repository(
-    name = "glib",
-    build_file = "./third_party/gnu-lib/glib.BUILD",
-    path = "/opt/homebrew/Cellar/glib/2.76.4",
+http_archive(
+    name = "linenoise",
+    build_file = "@//:third_party/linenoise/src/BUILD",
+    sha256 = "f5054a4fe120d43d85427cf58af93e56b9bb80389d507a9bec9b75531a340014",
+    strip_prefix = "linenoise-1.0",
+    url = "https://github.com/antirez/linenoise/archive/refs/tags/1.0.tar.gz",
 )
