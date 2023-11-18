@@ -1,3 +1,5 @@
 Hi, wie geht es Dir?
 was macht das einmaleins?
 exit
+wie geht es Dir?
+Cool

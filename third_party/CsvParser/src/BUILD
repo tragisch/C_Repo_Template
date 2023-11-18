@@ -7,6 +7,5 @@ cc_library(
         "-shared",
     ],
     includes = ["."],
-    shared_library = 1,
     visibility = ["//visibility:public"],
 )
