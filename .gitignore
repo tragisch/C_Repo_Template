@@ -97,6 +97,9 @@ Temporary Items
 # User-specific .bazelrc
 user.bazelrc
 
+# ignore vscode
+.vscode
+
 
 /tmp/*
 

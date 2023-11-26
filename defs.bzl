@@ -1,4 +1,3 @@
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # Simple Unit Testing for C
@@ -36,31 +35,6 @@ def load_dbg_marco():
         url = "https://github.com/eerimoq/dbg-macro/archive/refs/tags/0.12.1.zip",
     )
 
-# progressbar is a C-class (it's a convention, dammit) for displaying
-# attractive progress bars on the command line.
-def load_progress_bar():
-    git_repository(
-        name = "progress_bar",
-        commit = "ac56232610abf58cc2db2bc86efc8fcba7dfe8c2",
-        remote = "https://github.com/doches/progressbar.git",
-        build_file = "@//:third_party/progress_bar/progress_bar.BUILD",
-    )
-
-def load_benchmark():
-    git_repository(
-        name = "com_google_benchmark",
-        remote = "https://github.com/google/benchmark.git",
-        tag = "v1.8.0",
-    )
-
-def load_logger():
-    git_repository(
-        name = "logging",
-        commit = "f9ea34994bd58ed342d2245cd4110bb5c6790153",
-        remote = "https://github.com/rxi/log.c.git",
-        build_file = "@//:tools/logging/logging.BUILD",
-    )
-
 # A minimal, zero-config, BSD licensed, "readline" replacement
 def load_linenoise():
     http_archive(
@@ -71,14 +45,11 @@ def load_linenoise():
         url = "https://github.com/antirez/linenoise/archive/refs/tags/1.0.tar.gz",
     )
 
-# micro parster combinators (mpc) is a lightweight and powerful Parser Combinator library for C.
-def load_mpc():
+def load_simple_benchmark():
     http_archive(
-        name = "mpc",
-        build_file = "@//:third_party/mpc/mpc.BUILD",
-        sha256 = "da6e798accec57d7b0512ecc38adc151961adefde09811c1c25ee993a653e47c",
-        strip_prefix = "mpc-0.9.0",
-        url = "https://github.com/orangeduck/mpc/archive/refs/tags/0.9.0.tar.gz",
+        name = "simple_bench",
+        strip_prefix = "Simple-Benchmark-C-Header-main",
+        url = "https://github.com/tragisch/Simple-Benchmark-C-Header/archive/refs/heads/main.zip",
     )
 
 ##################################
@@ -90,10 +61,7 @@ def third_party_repositories():
     Loads third-party repositories for C.
     """
     load_linenoise()
-    load_mpc()
-    load_progress_bar()
     load_dbg_marco()
     load_unity()
     load_unity_cmock()
-    load_logger()
-    load_benchmark()
+    load_simple_benchmark()

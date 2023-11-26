@@ -6,8 +6,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/src/include",
-                "${workspaceFolder}/third_party/CsvParser/src",
-                "${workspaceFolder}/bazel-00_C_Repo_Template/external/Unity/src",
+                "${workspaceFolder}/third_party/**",
+                "${workspaceFolder}/bazel-00_C_Repo_Template/external/**/*",
             ],
             "defines": [],
             "macFrameworkPath": [],

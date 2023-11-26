@@ -1,6 +1,7 @@
 filegroup(
     name = "TestRunnerGenerator",
     srcs = ["auto/generate_test_runner.rb"],
+    
     visibility = ["//visibility:public"],
 )
 
