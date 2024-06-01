@@ -1,4 +1,4 @@
-def unity_test(name,  srcs, my_config=None, deps=None,  **kwargs):
+def unity_test(name, srcs, my_config = None, deps = None, **kwargs):
     """ Create a unity test.
 
     Args:
@@ -8,7 +8,7 @@ def unity_test(name,  srcs, my_config=None, deps=None,  **kwargs):
         deps (optional): The dependencies of the test.
         **kwargs: Additional arguments to pass to the cc_test rule.
     """
-    deps =(deps or []) + [Label("@Unity//:Unity")]
+    deps = (deps or []) + [Label("@Unity//:Unity")]
     file_name = str(srcs[0])
     generate_test_runner(file_name, my_config, name)
 
@@ -21,8 +21,7 @@ def unity_test(name,  srcs, my_config=None, deps=None,  **kwargs):
         **kwargs
     )
 
-
-def generate_test_runner(file_name, my_config, name=None):
+def generate_test_runner(file_name, my_config, name = None):
     """ Generate a test runner for a given test file.
 
     Args:
@@ -33,7 +32,7 @@ def generate_test_runner(file_name, my_config, name=None):
     srcs = [file_name]
     if my_config != None:
         my_config_path = "$(location " + str(my_config[0]) + ")"
-        cmd = "ruby $(location @Unity//:TestRunnerGenerator) $(SRCS) $(OUTS) " +  my_config_path
+        cmd = "ruby $(location @Unity//:TestRunnerGenerator) $(SRCS) $(OUTS) " + my_config_path
         srcs = [file_name, Label("//tests:my_config.yml")]
     else:
         cmd = "ruby $(location @Unity//:TestRunnerGenerator)  $(SRCS) $(OUTS)"
@@ -42,7 +41,7 @@ def generate_test_runner(file_name, my_config, name=None):
         name = runner_base_name(file_name)
     native.genrule(
         name = name + "_gen",
-        srcs = srcs,    
+        srcs = srcs,
         outs = [out_name],
         cmd = cmd,
         tools = [
@@ -50,7 +49,6 @@ def generate_test_runner(file_name, my_config, name=None):
             "@Unity//:HelperScripts",
         ],
         visibility = ["//visibility:public"],
-       
     )
 
 def strip_extension(file_name):
