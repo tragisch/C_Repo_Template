@@ -1,9 +1,37 @@
+/*
+ * Copyright (c) 2025 @tragisch <https://github.com/tragisch>
+ * SPDX-License-Identifier: MIT
+ *
+ * This file is part of a project licensed under the MIT License.
+ * See the LICENSE file in the root directory for details.
+ */
+
 #include "armstrong_numbers.h"
+
+/******************************
+ ** Test preconditions:
+ *******************************/
+
+#define UNITY_INCLUDE_FLOAT
+#define UNITY_FLOAT_PRECISION 5
+
+/* Support for Meta Test Rig */
+#define TEST_CASE(...)
+
 #include "unity.h"
+#include "unity_internals.h"
+
+/******************************
+ ** Setup and teardown:
+ *******************************/
 
 void setUp(void) {}
 
 void tearDown(void) {}
+
+/******************************
+ ** Test cases:
+ *******************************/
 
 void test_zero_is_an_armstrong_number(void) {
   TEST_ASSERT_TRUE(is_armstrong_number(0));

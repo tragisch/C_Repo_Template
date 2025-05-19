@@ -1,51 +1,28 @@
-###############################
-# Directory structure         #
-###############################
-
-# Artifacts are typically placed in a directory called "dist"
-# Be aware that this setup will still create a bazel-out symlink in
-# your project directory, which you must exclude from version control and your
-# editor's search path.
-
-# build --symlink_prefix=dist/
-
-###############################
-# Output                      #
-###############################
-
-# A more useful default output mode for bazel query, which
-# prints "ng_module rule //foo:bar" instead of just "//foo:bar".
-query --output=label_kind
-
-###############################
-# Build                    #
-###############################
-
+# build
 # ld: warning: -undefined dynamic_lookup may not work with chained fixups
 # temporary solution: https://github.com/bazelbuild/bazel/issues/16413
-build --linkopt=-Wl,-no_fixup_chains
+# build --linkopt=-Wl,-no_fixup_chains
+# build --platforms=//src:macos_arm64_platform
 
-###############################
-# Test                  #
-###############################
+# Gcov config
+# build:gcov --copt -fprofile-arcs 
+# build:gcov --copt -ftest-coverage
 
-# tests takes too long having a warning
-test --test_verbose_timeout_warnings
+# test
+test --test_verbose_timeout_warnings 
+test --verbose_failures
+test --keep_going 
+test --test_output=all
 
-# By default, failing tests don't print any output, it's logged to a
-# file instead.
-test --test_output=errors
-
-###############################
-# Coverage                  #
-###############################
-
-# coverage has still some issues with "--output" with unknown from XCode.app -> gcov
-# coverage --instrument_test_targets
-coverage --experimental_cc_coverage
-# coverage --experimental_use_llvm_covmap
-#coverage --nocache_test_results
- coverage --combined_report=lcov 
-coverage --instrumentation_filter="//src[/:]"
-coverage --coverage_report_generator=@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main
-
+# coverage:
+coverage --instrument_test_targets
+coverage --instrumentation_filter="/tests[/test_:]" 
+coverage --combined_report=lcov 
+coverage --coverage_report_generator=@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main               
+# coverage --incompatible_cc_coverage
+# coverage --experimental_cc_coverage
+# coverage --collect_code_coverage
+# coverage --nocache_test_results 
+# coverage --experimental_split_coverage_postprocessing
+# coverage --experimental_fetch_all_coverage_outputs 
+# coverage --remote_download_outputs=all
