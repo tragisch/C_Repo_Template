@@ -1,6 +1,3 @@
-load("@phst_license_test//:def.bzl", "license_test")
-load("//tools/bazel/install:def.bzl", "installer")
-
 # identify missing license headers "bazel run //:license_test"
 license_test(
     name = "license_test",
