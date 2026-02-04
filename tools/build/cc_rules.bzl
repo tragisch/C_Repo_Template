@@ -4,29 +4,7 @@ These macros provide consistent compiler flags, deps, and best practices.
 """
 
 load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
-
-####################################
-# Default Compiler Flags
-####################################
-
-_DEFAULT_COPTS = [
-    "-Wall",
-    "-Wextra",
-    "-Wpedantic",
-    "-Wno-unknown-pragmas",
-    "-Wno-unused-parameter",
-    "-std=c11",
-]
-
-_DEFAULT_LINKOPTS = [
-    "-lm",  # Link math library
-]
-
-_DEBUG_COPTS = [
-    "-g",
-    "-O0",
-    "-fno-omit-frame-pointer",
-]
+load(":c_copts.bzl", "C_COPTS", "C_DEBUG_COPTS", "C_LINKOPTS")
 
 ####################################
 # C Library
@@ -65,8 +43,8 @@ def c_lib(
         include_prefix = include_prefix,
         strip_include_prefix = strip_include_prefix,
         deps = deps,
-        copts = _DEFAULT_COPTS + kwargs.pop("copts", []),
-        linkopts = _DEFAULT_LINKOPTS + kwargs.pop("linkopts", []),
+        copts = C_COPTS + kwargs.pop("copts", []),
+        linkopts = C_LINKOPTS + kwargs.pop("linkopts", []),
         visibility = visibility,
         alwayslink = alwayslink,
         textual_hdrs = textual_hdrs,
@@ -95,8 +73,8 @@ def c_bin(
         use_stdlib: Whether to use C++ stdlib (default: False)
         **kwargs: Additional arguments passed to cc_binary
     """
-    copts = _DEFAULT_COPTS + kwargs.pop("copts", [])
-    linkopts = _DEFAULT_LINKOPTS + kwargs.pop("linkopts", [])
+    copts = C_COPTS + kwargs.pop("copts", [])
+    linkopts = C_LINKOPTS + kwargs.pop("linkopts", [])
 
     # Add C++ stdlib options if requested
     if use_stdlib:
@@ -137,8 +115,8 @@ def c_test(
         timeout: Test timeout
         **kwargs: Additional arguments passed to cc_test
     """
-    copts = _DEFAULT_COPTS + _DEBUG_COPTS + kwargs.pop("copts", [])
-    linkopts = _DEFAULT_LINKOPTS + kwargs.pop("linkopts", [])
+    copts = C_COPTS + C_DEBUG_COPTS + kwargs.pop("copts", [])
+    linkopts = C_LINKOPTS + kwargs.pop("linkopts", [])
 
     test_deps = deps + ["@Unity"]
 
