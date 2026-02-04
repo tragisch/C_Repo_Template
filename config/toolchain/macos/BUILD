@@ -1,3 +1,5 @@
-load(":brew_clang_toolchain.bzl", "define_brew_clang_toolchain")
+"""macOS-specific build configuration.
 
-define_brew_clang_toolchain()
+The LLVM toolchain is now provided by MODULE.bazel with toolchains_llvm.
+This directory is kept for potential future macOS-specific configurations.
+"""

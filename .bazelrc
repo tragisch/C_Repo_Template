@@ -1,72 +1,146 @@
-# build
-# ld: warning: -undefined dynamic_lookup may not work with chained fixups
-# temporary solution: https://github.com/bazelbuild/bazel/issues/16413
-# build --linkopt=-Wl,-no_fixup_chains
+####################################
+# General Bazel Configuration
+####################################
+
+common --color=yes
+common --curses=yes
+
+####################################
+# Default Platform (macOS ARM64)
+####################################
+
 build --platforms=//config/platforms:macos_arm64_platform
 
-# Gcov config
-# build:gcov --copt -fprofile-arcs 
-# build:gcov --copt -ftest-coverage
+####################################
+# Compiler & Linker Warnings
+####################################
 
+build --copt=-Wall
+build --copt=-Wextra
+build --copt=-Wpedantic
+build --copt=-Wno-unused-parameter
+build --copt=-Werror=implicit-function-declaration
 
-###############################
-#   test                      #
-###############################
+####################################
+# Cache Configuration
+####################################
 
-test --test_verbose_timeout_warnings 
+build --disk_cache=.cache/bazel_cache
+build --workspace_status_command=tools/scripts/workspace_status.sh
+
+####################################
+# Test Configuration
+####################################
+
+test --test_verbose_timeout_warnings
 test --verbose_failures
-test --keep_going 
+test --keep_going
 test --test_output=all
 
-###############################
-# sanitizer                   #
-###############################
+####################################
+# Debug Build (with ASAN/UBSAN)
+####################################
 
-build:asan --strip=never
-build:asan --copt -fsanitize=address
-build:asan --copt -DADDRESS_SANITIZER
-build:asan --copt -O1
-build:asan --copt -g
-build:asan --copt -fno-omit-frame-pointer
-build:asan --linkopt -fsanitize=address
+build:debug --compilation_mode=dbg
+build:debug --strip=never
+build:debug --copt=-O0
+build:debug --copt=-g
+build:debug --copt=-fno-omit-frame-pointer
+build:debug --copt=-fsanitize=address
+build:debug --copt=-fsanitize=undefined
+build:debug --linkopt=-fsanitize=address
+build:debug --linkopt=-fsanitize=undefined
+build:debug --define=DEBUG=1
+build:debug --features=layering_check
+build:debug --sandbox_debug
 
-# do not use in production code:
-build --config=asan
+test:debug --config=debug
 
-###############################
-# Profile                     #
-###############################
+####################################
+# Release Build (Optimized)
+####################################
 
-build --generate_json_trace_profile
+build:opt --compilation_mode=opt
+build:opt --strip=always
+build:opt --copt=-O3
+build:opt --define=NDEBUG=1
+build:opt --copt=-march=native
 
-###############################
-# macOS SDK Version           #
-###############################
+####################################
+# Profile/Report Build
+####################################
 
-# build --macos_sdk_version=15.1
+build:profile --compilation_mode=opt
+build:profile --copt=-O2
+build:profile --copt=-g
+build:profile --copt=-ftime-report
+build:profile --profile=profile.gz
+build:profile --generate_json_trace_profile
 
-###############################
-# Output                      #
-###############################
+####################################
+# Benchmark Build
+####################################
 
-# A more useful default output mode for bazel query, which
-# prints "ng_module rule //foo:bar" instead of just "//foo:bar".
+build:benchmark --compilation_mode=opt
+build:benchmark --strip=always
+build:benchmark --define=NDEBUG=1
+build:benchmark --copt=-O3
+build:benchmark --copt=-march=native
+
+test:benchmark --config=benchmark
+
+####################################
+# Code Coverage (LLVM Coverage)
+####################################
+
+coverage --combined_report=lcov
+coverage --instrumentation_filter="^lib/.*"
+coverage --experimental_use_llvm_covmap
+coverage --copt=-fprofile-instr-generate
+coverage --copt=-fcoverage-mapping
+coverage --copt=-ffile-prefix-map=$(PWD)=.
+coverage --copt=-fdebug-prefix-map=$(PWD)=.
+coverage --linkopt=-fprofile-instr-generate
+coverage --linkopt=-fcoverage-mapping
+coverage --experimental_generate_llvm_lcov
+
+####################################
+# Static Analysis (clang-tidy)
+####################################
+
+build:tidy --aspects=@bazel_tools//tools/cpp:cc_code_coverage.aspect
+build:tidy --features=layering_check
+build:tidy --copt=-fdiagnostics-color=always
+
+####################################
+# Linux with Homebrew LLVM
+####################################
+
+build:linux_llvm --action_env=CC=/opt/homebrew/opt/llvm/bin/clang
+build:linux_llvm --action_env=CXX=/opt/homebrew/opt/llvm/bin/clang++
+build:linux_llvm --action_env=BAZEL_USE_CPP_ONLY_TOOLCHAIN=1
+build:linux_llvm --cxxopt=-stdlib=libc++
+build:linux_llvm --linkopt=-fuse-ld=lld
+build:linux_llvm --platforms=@platforms//os:linux
+build:linux_llvm --cpu=x86_64
+
+test:linux_llvm --config=linux_llvm
+
+####################################
+# Heap Dump on OOM
+####################################
+
+build --heap_dump_on_oom
+
+####################################
+# Query Output Format
+####################################
+
 query --output=label_kind
 
-###############################
-# Build Debug                 #
-###############################
+####################################
+# Output Filter
+####################################
 
-# build --compilation_mode=dbg --spawn_strategy=local
-
-###############################
-# Coverage                  #
-###############################
-
-# # Use Clang as the compiler
-build --compiler=clang
-build --collect_code_coverage
-build --copt=-fprofile-instr-generate
-build --copt=-fcoverage-mapping
-build --linkopt=-fprofile-instr-generate
-build --linkopt=-fcoverage-mapping
+# Suppresses most of the build output, leaving just the summary line
+# build --output_filter=^$ # Uncomment for cleaner output

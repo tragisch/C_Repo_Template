@@ -13,16 +13,45 @@ For more details, please check https://github.com/bazelbuild/bazel/issues/18958
 
 module(
     name = "template",
-    version = "0.0.2",
+    version = "0.1.0",
 )
 
+######################################################################
+# Core Build Tools & Platforms
+######################################################################
+
 bazel_dep(name = "platforms", version = "0.0.11")
-bazel_dep(name = "rules_cc", version = "0.1.1")
+bazel_dep(name = "rules_cc", version = "0.1.2")
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "cgrindel_bazel_starlib", version = "0.25.0")
 bazel_dep(name = "rules_shell", version = "0.4.0")
-
 bazel_dep(name = "depend_on_what_you_use", version = "0.8.0")
+
+######################################################################
+# LLVM Toolchain (for consistent C/C++ across macOS & Linux)
+######################################################################
+
+bazel_dep(name = "toolchains_llvm", version = "1.6.0")
+
+llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm")
+llvm.toolchain(llvm_version = "20.1.0")
+use_repo(llvm, "llvm_toolchain")
+use_repo(llvm, "llvm_toolchain_llvm")
+
+register_toolchains("@llvm_toolchain//:all")
+
+######################################################################
+# Apple Support (for macOS/iOS)
+######################################################################
+
+bazel_dep(name = "apple_support", version = "1.23.1")
+
+######################################################################
+# Testing & Development Tools
+######################################################################
+
+bazel_dep(name = "google_benchmark", version = "1.9.2")
+bazel_dep(name = "rules_foreign_cc", version = "0.14.0")
 
 #############################
 # Hedron's Compile Commands Extractor for Bazel
@@ -33,8 +62,8 @@ bazel_dep(name = "depend_on_what_you_use", version = "0.8.0")
 bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
 git_override(
     module_name = "hedron_compile_commands",
-    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
     commit = "4f28899228fb3ad0126897876f147ca15026151e",
+    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
 )
 
 #############################
@@ -44,15 +73,16 @@ git_override(
 bazel_dep(name = "phst_license_test", version = "0", dev_dependency = True)
 git_override(
     module_name = "phst_license_test",
-    tag = "0.0.1",
     remote = "https://github.com/phst/license_test.git",
+    tag = "0.0.1",
 )
 
-#############################
-# Load external non-Bazel libraries
-#############################
+######################################################################
+# Load external non-Bazel libraries (Unity, dbg-macro, etc)
+######################################################################
 
 http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
 git_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 # unity - A simple unit testing library for C.
@@ -69,7 +99,7 @@ http_archive(
 # dbg-macro: A simple debug macro for C.
 git_repository(
     name = "dbg-macro",
+    build_file = "@//:third_party/dbg-macro.BUILD",
     commit = "b949858d9dff4886e68f1049270aad1b3fa7ab81",
     remote = "https://github.com/eerimoq/dbg-macro.git",
-    build_file = "@//:third_party/dbg-macro.BUILD",
 )
