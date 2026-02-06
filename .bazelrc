@@ -5,6 +5,33 @@
 import %workspace%/tools/preset.bazelrc
 
 ####################################
+# Persistent Caches (survive 'bazel clean --expunge')
+####################################
+
+# Repository cache - stores downloaded dependencies
+# Lives outside the output_base, so it persists across clean operations
+# Initialize with: bash tools/setup/init_bazel_env.sh
+common --repository_cache=~/.bazel/repo-cache
+
+# Optional: Distribution mirror for offline builds
+# Uncomment to enable: bazel build //... --distdir=~/.bazel/distdir
+# common --distdir=~/.bazel/distdir
+
+# Persistent build artifact cache (optional, for CI/local development)
+# Survives 'bazel clean' but is cleared with 'bazel clean --expunge'
+build --disk_cache=~/.bazel/build-cache
+
+####################################
+# Bazel 9 Optimizations
+####################################
+
+# Enable external include paths feature (Bazel 9 default: -I instead of -isystem)
+build --features=external_include_paths
+
+# Auto-cleanup of stale action cache entries
+build --experimental_action_cache_gc_max_age=7d
+
+####################################
 # Project-Specific Configuration
 ####################################
 
@@ -14,11 +41,7 @@ common --curses=yes
 # Default build platform for this project (macOS ARM64)
 build --platforms=//config/platforms:macos_arm64_platform
 
-####################################
-# Cache & Build Metadata
-####################################
-
-build --disk_cache=.cache/bazel_cache
+# Build metadata
 build --workspace_status_command=tools/scripts/workspace_status.sh
 
 ####################################
@@ -78,7 +101,7 @@ test:benchmark --config=benchmark
 ####################################
 
 coverage --combined_report=lcov
-coverage --instrumentation_filter="^lib/.*"
+coverage --instrumentation_filter="^//app/.*"
 coverage --experimental_use_llvm_covmap
 coverage --copt=-fprofile-instr-generate
 coverage --copt=-fcoverage-mapping

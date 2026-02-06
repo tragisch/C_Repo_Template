@@ -1,15 +1,4 @@
-"""
-This module file is used to manage external dependencies using Bzlmod.
-Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
-For more details, please check https://github.com/bazelbuild/bazel/issues/18958
-"""
-
-###############################################################################
-# Bazel now uses Bzlmod by default to manage external dependencies.
-# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
-#
-# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
-###############################################################################
+"""MODULE.bazel — Central dependency management via Bzlmod (Bazel 9+)."""
 
 module(
     name = "template",
@@ -38,8 +27,8 @@ bazel_dep(name = "bazelrc-preset.bzl", version = "0.4.2")
 ######################################################################
 
 bazel_dep(name = "platforms", version = "1.0.0")
-bazel_dep(name = "rules_cc", version = "0.2.8")
-bazel_dep(name = "bazel_skylib", version = "1.8.2")
+bazel_dep(name = "rules_cc", version = "0.2.16")
+bazel_dep(name = "bazel_skylib", version = "1.9.0")
 bazel_dep(name = "cgrindel_bazel_starlib", version = "0.25.0")
 bazel_dep(name = "rules_shell", version = "0.6.1")
 bazel_dep(name = "depend_on_what_you_use", version = "0.8.0")
@@ -61,16 +50,12 @@ register_toolchains("@llvm_toolchain//:all")
 # Apple Support (for macOS system frameworks)
 ######################################################################
 
+bazel_dep(name = "apple_support", version = "1.24.3")
+
 apple_cc_configure = use_extension("@apple_support//crosstool:setup.bzl", "apple_cc_configure_extension")
 use_repo(apple_cc_configure, "local_config_apple_cc", "local_config_apple_cc_toolchains")
 
 register_toolchains("@local_config_apple_cc_toolchains//:all")
-
-######################################################################
-# Apple Support (for macOS/iOS)
-######################################################################
-
-bazel_dep(name = "apple_support", version = "1.24.3")
 
 ######################################################################
 # Testing & Development Tools

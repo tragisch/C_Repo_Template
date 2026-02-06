@@ -1,13 +1,14 @@
 """Unit tests for example_lib."""
 
-load("//tools/build:cc_rules.bzl", "c_test")
+load("@rules_cc//cc:defs.bzl", "cc_test")
 
-c_test(
+cc_test(
     name = "test_example_lib",
     srcs = [
         "test_example_lib.c",
     ],
     deps = [
-        "//lib/example_lib",
+        "//app:example_lib",
+        "@Unity",
     ],
 )
