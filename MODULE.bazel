@@ -31,7 +31,14 @@ bazel_dep(name = "rules_cc", version = "0.2.16")
 bazel_dep(name = "bazel_skylib", version = "1.9.0")
 bazel_dep(name = "cgrindel_bazel_starlib", version = "0.25.0")
 bazel_dep(name = "rules_shell", version = "0.6.1")
-bazel_dep(name = "depend_on_what_you_use", version = "0.8.0")
+bazel_dep(name = "depend_on_what_you_use", version = "0.12.0")
+
+######################################################################
+# Formatting (clang-format + buildifier)
+######################################################################
+
+bazel_dep(name = "aspect_rules_lint", version = "2.0.0")
+bazel_dep(name = "buildifier_prebuilt", version = "8.2.1.2")
 
 ######################################################################
 # LLVM Toolchain (for consistent C/C++ across macOS & Linux)
@@ -52,7 +59,10 @@ register_toolchains("@llvm_toolchain//:all")
 
 bazel_dep(name = "apple_support", version = "1.24.3")
 
-apple_cc_configure = use_extension("@apple_support//crosstool:setup.bzl", "apple_cc_configure_extension")
+apple_cc_configure = use_extension(
+    "@apple_support//crosstool:setup.bzl",
+    "apple_cc_configure_extension",
+)
 use_repo(apple_cc_configure, "local_config_apple_cc", "local_config_apple_cc_toolchains")
 
 register_toolchains("@local_config_apple_cc_toolchains//:all")

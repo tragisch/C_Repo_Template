@@ -38,15 +38,5 @@ void test_example_multiply_negative(void) {
     TEST_ASSERT_EQUAL_INT(-200, example_multiply(10, -20));
 }
 
-int main(void) {
-    UNITY_BEGIN();
-    
-    RUN_TEST(test_example_add_positive);
-    RUN_TEST(test_example_add_zero);
-    RUN_TEST(test_example_add_negative);
-    RUN_TEST(test_example_multiply_positive);
-    RUN_TEST(test_example_multiply_zero);
-    RUN_TEST(test_example_multiply_negative);
-    
-    return UNITY_END();
-}
+// The Unity test runner is generated automatically; do not define main() here.
+// The generated runner will call the TEST functions declared above.

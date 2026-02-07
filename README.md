@@ -30,14 +30,14 @@ bazel run //app:example_app
 
 ## Build Configurations
 
-| Config | Command | Description |
-|--------|---------|-------------|
-| Default | `bazel build //...` | Standard build |
-| Debug | `bazel build --config=debug //...` | Debug + ASAN/UBSAN |
-| Release | `bazel build --config=opt //...` | Optimized (`-O3 -march=native`) |
-| Profile | `bazel build --config=profile //...` | Profiling (`-ftime-report`) |
-| Benchmark | `bazel build --config=benchmark //...` | Benchmark build |
-| Coverage | `bazel coverage //...` | LLVM code coverage (lcov) |
+| Config    | Command                                | Description                     |
+| --------- | -------------------------------------- | ------------------------------- |
+| Default   | `bazel build //...`                    | Standard build                  |
+| Debug     | `bazel build --config=debug //...`     | Debug + ASAN/UBSAN              |
+| Release   | `bazel build --config=opt //...`       | Optimized (`-O3 -march=native`) |
+| Profile   | `bazel build --config=profile //...`   | Profiling (`-ftime-report`)     |
+| Benchmark | `bazel build --config=benchmark //...` | Benchmark build                 |
+| Coverage  | `bazel coverage //...`                 | LLVM code coverage (lcov)       |
 
 ## Cross-Compilation
 
