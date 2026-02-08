@@ -6,4 +6,5 @@ format_multirun(
     name = "format",
     cc = "@llvm_toolchain_llvm//:bin/clang-format",
     starlark = "@buildifier_prebuilt//:buildifier",
+    visibility = ["//tools:__subpackages__"],
 )

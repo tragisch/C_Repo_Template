@@ -7,6 +7,6 @@ cc_binary(
     ],
     visibility = ["//visibility:public"],
     deps = [
-        "//app/example_lib",
+        "//apps/example_lib",
     ],
 )

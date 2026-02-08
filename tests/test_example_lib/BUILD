@@ -8,6 +8,6 @@ unity_test(
         "test_example_lib.c",
     ],
     deps = [
-        "//app/example_lib",
+        "//apps/example_lib",
     ],
 )

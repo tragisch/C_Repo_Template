@@ -1,18 +1,6 @@
 {
-    "bazel-cpp-tools.compileCommands.targets": [
-        "main"
+    "clangd.arguments": [
+        // Allow clangd to execute your compiler to find system headers. I've seen strange errors when this is enabled, so it might be worth trying without it.
+        "--query-driver=/**"
     ],
-    "C_Cpp.experimentalFeatures": "enabled",
-    "C_Cpp.errorSquiggles": "enabled",
-    "files.associations": {
-        "glib.h": "c",
-        "gslist.h": "c",
-        "cmocka.h": "c",
-        "cmocka_private.h": "c",
-        "armstrong_numbers.h": "c",
-        "unity.h": "c",
-        "locale": "c",
-        "string": "c"
-    },
-    "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json"
 }

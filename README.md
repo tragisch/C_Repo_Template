@@ -11,6 +11,7 @@ A template for C projects using:
 
 - [Bazel 9+](https://bazel.build/) (via Bazelisk recommended)
 - Xcode Command Line Tools (macOS)
+- (Optional) direnv for automatic environment setup
 
 ## Quick Start
 
@@ -30,20 +31,73 @@ bazel run //app:example_app
 
 ## Build Configurations
 
-| Config    | Command                                | Description                     |
-| --------- | -------------------------------------- | ------------------------------- |
-| Default   | `bazel build //...`                    | Standard build                  |
-| Debug     | `bazel build --config=debug //...`     | Debug + ASAN/UBSAN              |
-| Release   | `bazel build --config=opt //...`       | Optimized (`-O3 -march=native`) |
-| Profile   | `bazel build --config=profile //...`   | Profiling (`-ftime-report`)     |
-| Benchmark | `bazel build --config=benchmark //...` | Benchmark build                 |
-| Coverage  | `bazel coverage //...`                 | LLVM code coverage (lcov)       |
+| Config   | Command                              | Description                     |
+| -------- | ------------------------------------ | ------------------------------- |
+| Default  | `bazel build //...`                  | Standard build                  |
+| Debug    | `bazel build --config=debug //...`   | Debug + ASAN/UBSAN              |
+| Release  | `bazel build --config=opt //...`     | Optimized (`-O3 -march=native`) |
+| Profile  | `bazel build --config=profile //...` | Profiling (`-ftime-report`)     |
+| Coverage | `bazel coverage //...`               | LLVM code coverage (lcov)       |
 
-## Cross-Compilation
+## Coverage Report (HTML)
+
+Das Template bringt `bazelcov` mit, um aus `bazel coverage` einen HTML‑Report
+zu erzeugen. Voraussetzung: `genhtml` ist installiert (z. B. via `brew install lcov`).
+
+Standard-Ausgabeort: `docs/coverage`
 
 ```bash
-# Build for Linux (using Homebrew LLVM)
-bazel build --config=linux_llvm //...
+# HTML-Report für das gesamte Repo
+bazel run //:coverage_html
+
+# Nur bestimmte Targets
+bazel run //:coverage_html -- //app/... //tests/...
+```
+
+## Native Linux Builds
+
+```bash
+# On Linux (native), same toolchain setup via LLVM
+bazel build //...
+```
+
+## Tooling (direnv + multitool)
+
+This template uses LLVM via Bazel toolchains and can fetch developer tools
+through `rules_multitool`.
+
+### direnv
+
+Enable automatic environment loading:
+
+```bash
+direnv allow
+```
+
+Optionally add local overrides to `.env` (e.g. `CC`/`CXX`), which are loaded by
+`.envrc`.
+
+### bazel_env
+
+Activate the full developer toolchain (adds tools to your PATH):
+
+```bash
+bazel run //tools:bazel_env
+```
+
+Refresh your shell hash table if needed:
+
+```bash
+rehash
+```
+
+### rules_multitool
+
+The lockfile lives at `tools/tools.lock.json`. Add tools there and they become
+available as Bazel toolchains. Example usage:
+
+```bash
+bazel run @multitool//tools/<tool-name>:cwd -- --help
 ```
 
 ## Project Structure

@@ -23,6 +23,22 @@ module(
 bazel_dep(name = "bazelrc-preset.bzl", version = "0.4.2")
 
 ######################################################################
+# Environment & Tooling
+######################################################################
+
+# Environment variable management
+bazel_dep(name = "bazel_env.bzl", version = "0.5.0")
+
+# Hub-based dependency management for tools
+bazel_dep(name = "rules_multitool", version = "1.9.0")
+
+multitool = use_extension("@rules_multitool//multitool:extension.bzl", "multitool")
+multitool.hub(lockfile = "//tools:tools.lock.json")
+use_repo(multitool, "multitool")
+
+register_toolchains("@multitool//toolchains:all")
+
+######################################################################
 # Core Build Tools & Platforms
 ######################################################################
 
@@ -39,6 +55,14 @@ bazel_dep(name = "depend_on_what_you_use", version = "0.12.0")
 
 bazel_dep(name = "aspect_rules_lint", version = "2.0.0")
 bazel_dep(name = "buildifier_prebuilt", version = "8.2.1.2")
+bazel_dep(name = "buildozer", version = "8.2.1")
+
+######################################################################
+# Developer Tools (BCR)
+######################################################################
+
+bazel_dep(name = "rules_java", version = "9.0.3")
+bazel_dep(name = "rules_python", version = "1.7.0")
 
 ######################################################################
 # LLVM Toolchain (for consistent C/C++ across macOS & Linux)
@@ -75,28 +99,23 @@ bazel_dep(name = "google_benchmark", version = "1.9.2")
 bazel_dep(name = "rules_foreign_cc", version = "0.14.0")
 
 #############################
-# Hedron's Compile Commands Extractor for Bazel
+# Coverage Report (bazelcov)
 #############################
 
-# Hedron's Compile Commands Extractor for Bazel
-# https://github.com/hedronvision/bazel-compile-commands-extractor
-bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+# https://github.com/phst/bazelcov
+bazel_dep(name = "phst_bazelcov", version = "0", dev_dependency = True)
 git_override(
-    module_name = "hedron_compile_commands",
-    commit = "4f28899228fb3ad0126897876f147ca15026151e",
-    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
+    module_name = "phst_bazelcov",
+    commit = "9d1535d4659982348dbe7f99fe7a6bea906f4a66",
+    remote = "https://github.com/phst/bazelcov.git",
 )
 
 #############################
-# Check license of external dependencies
+# Compile Commands Extractor for Bazel (wolfd)
 #############################
 
-bazel_dep(name = "phst_license_test", version = "0", dev_dependency = True)
-git_override(
-    module_name = "phst_license_test",
-    remote = "https://github.com/phst/license_test.git",
-    tag = "0.0.1",
-)
+# https://github.com/wolfd/bazel-compile-commands
+bazel_dep(name = "wolfd_bazel_compile_commands", version = "0.5.2", dev_dependency = True)
 
 ######################################################################
 # Load external non-Bazel libraries (Unity, dbg-macro, etc)

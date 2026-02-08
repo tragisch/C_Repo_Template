@@ -22,7 +22,9 @@ build --disk_cache=~/.bazel/build-cache
 ####################################
 
 # Skyfocus für reduzierte Memory-Usage (experimentell)
-build --experimental_enable_skyfocus
+# Hinweis: kann in Bazel 9 zu internen Crashes führen. Optional aktivieren via:
+#   bazel build --config=skyfocus <target>
+build:skyfocus --experimental_enable_skyfocus
 
 # Action-Cache Garbage-Collection (Idle-Server bereinigt alten Cache)
 common --experimental_action_cache_gc_max_age=7d
@@ -90,18 +92,6 @@ build:profile --profile=profile.gz
 build:profile --generate_json_trace_profile
 
 ####################################
-# Benchmark Build
-####################################
-
-build:benchmark --compilation_mode=opt
-build:benchmark --strip=always
-build:benchmark --define=NDEBUG=1
-build:benchmark --copt=-O3
-build:benchmark --copt=-march=native
-
-test:benchmark --config=benchmark
-
-####################################
 # Code Coverage (LLVM Coverage)
 ####################################
 
@@ -110,25 +100,6 @@ coverage --instrumentation_filter="^//app[:/]"
 coverage --experimental_use_llvm_covmap
 coverage --experimental_generate_llvm_lcov
 coverage --copt=-fcoverage-compilation-dir=.
-
-####################################
-# Static Analysis (clang-tidy)
-####################################
-
-build:tidy --aspects=@bazel_tools//tools/cpp:cc_code_coverage.aspect
-build:tidy --features=layering_check
-build:tidy --copt=-fdiagnostics-color=always
-
-####################################
-# Cross-Compile: Linux with Homebrew LLVM
-####################################
-
-build:linux_llvm --action_env=CC=/opt/homebrew/opt/llvm/bin/clang
-build:linux_llvm --action_env=CXX=/opt/homebrew/opt/llvm/bin/clang++
-build:linux_llvm --action_env=BAZEL_USE_CPP_ONLY_TOOLCHAIN=1
-build:linux_llvm --cxxopt=-stdlib=libc++
-build:linux_llvm --linkopt=-fuse-ld=lld
-build:linux_llvm --platforms=@platforms//os:linux
 
 ####################################
 # Depend on What You Use (DWYU)

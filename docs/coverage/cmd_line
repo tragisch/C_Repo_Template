@@ -1,0 +1,1 @@
+genhtml --output-directory=/Users/uwe/Documents/Programmierung/C/00_C_Repo_Template/docs/coverage --branch-coverage --demangle-cpp --rc=genhtml_demangle_cpp_params=--no-strip-underscore -- /var/folders/df/x_711b793l3gx2_4g0sjgt6c0000gn/T/coverage-2749444226.info
