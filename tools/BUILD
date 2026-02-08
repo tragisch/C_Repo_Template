@@ -1,4 +1,4 @@
-load("@bazel_env.bzl", "bazel_env")
+load("@bazel_env.bzl//:bazel_env.bzl", "bazel_env")
 load("@bazelrc-preset.bzl", "bazelrc_preset")
 load("@multitool//:tools.bzl", MULTITOOL_TOOLS = "TOOLS")
 
@@ -9,7 +9,6 @@ bazel_env(
         "python": "@rules_python//python:current_py_toolchain",
     },
     tools = MULTITOOL_TOOLS | {
-        # Tools can be specified as labels - these override multitool
         "buildifier": "@buildifier_prebuilt//:buildifier",
         "buildozer": "@buildozer//:buildozer",
         "format": "//tools/format:format",
