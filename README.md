@@ -1,117 +1,43 @@
 # C Repo Template
 
-A template for C projects using:
+A C repository template using Bazel 9 + Bzlmod, LLVM toolchains, and Unity tests.
+Targets: macOS ARM64 and Linux x86_64.
 
-- **Bazel 9** with Bzlmod for dependency management
-- **LLVM Toolchain** (20.1.0) via `toolchains_llvm` for consistent builds across platforms
-- **ThrowTheSwitch Unity** for unit testing
-- **Target Platforms:** macOS ARM64, Linux x86_64
+## Requirements
 
-## Prerequisites
-
-- [Bazel 9+](https://bazel.build/) (via Bazelisk recommended)
+- [Bazel 9+](https://bazel.build/) (Bazelisk recommended)
 - Xcode Command Line Tools (macOS)
-- (Optional) direnv for automatic environment setup
+- Optional: `direnv`, `lcov` (for HTML coverage)
 
 ## Quick Start
 
 ```bash
-# Initialize Bazel environment (repo cache, etc.)
 bash tools/setup/init_bazel_env.sh
-
-# Build everything
 bazel build //...
-
-# Run tests
 bazel test //...
-
-# Run the example application
-bazel run //app:example_app
+bazel run //apps/example_app:example_app
 ```
 
-## Build Configurations
+## Common Tasks
 
-| Config   | Command                              | Description                     |
-| -------- | ------------------------------------ | ------------------------------- |
-| Default  | `bazel build //...`                  | Standard build                  |
-| Debug    | `bazel build --config=debug //...`   | Debug + ASAN/UBSAN              |
-| Release  | `bazel build --config=opt //...`     | Optimized (`-O3 -march=native`) |
-| Profile  | `bazel build --config=profile //...` | Profiling (`-ftime-report`)     |
-| Coverage | `bazel coverage //...`               | LLVM code coverage (lcov)       |
+- Debug build: `bazel build --config=debug //...`
+- Release build: `bazel build --config=opt //...`
+- Coverage: `bazel coverage //...` then `bazel run //:coverage_html`
+- Compile commands: `bazel run //:refresh_compile_commands`
 
-## Coverage Report (HTML)
-
-Das Template bringt `bazelcov` mit, um aus `bazel coverage` einen HTML‑Report
-zu erzeugen. Voraussetzung: `genhtml` ist installiert (z. B. via `brew install lcov`).
-
-Standard-Ausgabeort: `docs/coverage`
-
-```bash
-# HTML-Report für das gesamte Repo
-bazel run //:coverage_html
-
-# Nur bestimmte Targets
-bazel run //:coverage_html -- //app/... //tests/...
-```
-
-## Native Linux Builds
-
-```bash
-# On Linux (native), same toolchain setup via LLVM
-bazel build //...
-```
-
-## Tooling (direnv + multitool)
-
-This template uses LLVM via Bazel toolchains and can fetch developer tools
-through `rules_multitool`.
-
-### direnv
-
-Enable automatic environment loading:
-
-```bash
-direnv allow
-```
-
-Optionally add local overrides to `.env` (e.g. `CC`/`CXX`), which are loaded by
-`.envrc`.
-
-### bazel_env
-
-Activate the full developer toolchain (adds tools to your PATH):
-
-```bash
-bazel run //tools:bazel_env
-```
-
-Refresh your shell hash table if needed:
-
-```bash
-rehash
-```
-
-### rules_multitool
-
-The lockfile lives at `tools/tools.lock.json`. Add tools there and they become
-available as Bazel toolchains. Example usage:
-
-```bash
-bazel run @multitool//tools/<tool-name>:cwd -- --help
-```
-
-## Project Structure
+## Structure
 
 ```
-app/              # Application targets (cc_binary, cc_library)
-config/platforms/ # Platform definitions (macOS, Linux, etc.)
-tests/unit/       # Unit tests (Unity framework)
-third_party/      # External library BUILD files
-tools/            # Build tooling, compiler flags, macros
+apps/example_app/   # Demo binary
+apps/example_lib/   # Demo library
+tests/test_example_lib/ # Unity tests
+config/platforms/   # Platform definitions
+third_party/        # External BUILD files
+tools/              # Build tooling
+docs/coverage/      # Coverage HTML output
 ```
 
-## Dependencies
+## Notes
 
-All external dependencies are managed via `MODULE.bazel` (Bzlmod).
-See [MODULE.bazel](MODULE.bazel) for the full list.
-   
+- `direnv allow` enables optional environment loading via `.envrc`.
+- `bazel run //tools:bazel_env` adds the full developer toolchain to PATH.
