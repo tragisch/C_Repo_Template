@@ -80,6 +80,12 @@ if [[ "$(uname)" == "Darwin" ]]; then
     fi
 fi
 
+# Required for Unity test runner generation
+if ! check_command_required ruby "Ruby (for Unity test runner generation)"; then
+    echo -e "${YELLOW}  → Install from: https://www.ruby-lang.org/en/downloads/${NC}"
+    has_errors=true
+fi
+
 # Optional dependencies
 check_command lcov "lcov (for HTML coverage reports)"
 check_command direnv "direnv (for automatic environment loading)"

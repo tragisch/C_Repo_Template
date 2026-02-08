@@ -1,18 +1,18 @@
-# name: CI
-
-# on: [push, pull_request]
-
-# jobs:
-#   test:
-#     # virtual environments: https://github.com/actions/virtual-environments
-#     runs-on: macos-12
-
-#     steps:
-#       # Checks-out your repository under $GITHUB_WORKSPACE, which is the CWD for
-#       # the rest of the steps
-#       - uses: actions/checkout@v3
-
-#       # test
-#       - name: Test the code (unit tests)
-#         run: bazel test //tests:all
-    
+name: CI
+on: [push, pull_request]
+jobs:
+  build-and-test:
+    strategy:
+      matrix:
+        os: [macos-14, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: bazel build //...
+      - name: Test
+        run: bazel test //... --config=ci
+      - name: Format Check
+        run: bazel run //tools/format:format -- --check
+      - name: DWYU Check
+        run: bazel build --config=dwyu //...
