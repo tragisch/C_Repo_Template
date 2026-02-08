@@ -96,7 +96,7 @@ build:profile --generate_json_trace_profile
 ####################################
 
 coverage --combined_report=lcov
-coverage --instrumentation_filter="^//app[:/]"
+coverage --instrumentation_filter="^//apps[:/]"
 coverage --experimental_use_llvm_covmap
 coverage --experimental_generate_llvm_lcov
 coverage --copt=-fcoverage-compilation-dir=.

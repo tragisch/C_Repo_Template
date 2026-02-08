@@ -113,7 +113,6 @@ user.bazelrc
 /share/*
 /lib/*
 *.in
-*.clang-tidy
 compile_commands.json
 compile_flags.txt
 .cache/

@@ -48,6 +48,7 @@ bazel_dep(name = "bazel_skylib", version = "1.9.0")
 bazel_dep(name = "cgrindel_bazel_starlib", version = "0.25.0")
 bazel_dep(name = "rules_shell", version = "0.6.1")
 bazel_dep(name = "depend_on_what_you_use", version = "0.12.0")
+bazel_dep(name = "rules_license", version = "1.0.0")
 
 ######################################################################
 # Formatting (clang-format + buildifier)
@@ -138,8 +139,8 @@ http_archive(
 
 # dbg-macro: A simple debug macro for C.
 git_repository(
-    name = "dbg-macro",
-    build_file = "@//:third_party/dbg-macro.BUILD",
-    commit = "b949858d9dff4886e68f1049270aad1b3fa7ab81",
+    name = "dbg_macro",
+    build_file = "@//:third_party/dbg_macro.BUILD",
     remote = "https://github.com/eerimoq/dbg-macro.git",
+    tag = "0.13.0",
 )
