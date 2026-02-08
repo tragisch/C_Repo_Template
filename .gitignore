@@ -33,6 +33,11 @@
 *.su
 *.idb
 *.pdb
+*.gcda
+*.gcno
+*.gcov
+*.profraw
+*.profdata
 
 #-------------------------------------------------------------------------------
 # Kernel Module Compile Results
@@ -48,9 +53,11 @@ dkms.conf
 #-------------------------------------------------------------------------------
 # Visual Studio Code
 #-------------------------------------------------------------------------------
-.vscode/
 .history/
 *.vsix
+.vscode/ipch/
+.vscode/*.local.json
+*.code-workspace
 
 #-------------------------------------------------------------------------------
 # macOS metadata
@@ -79,14 +86,18 @@ Temporary Items
 /bazel-*
 /bazel.iml
 /output/
-.bazelversion
 user.bazelrc
-MODULE.bazel.lock
 
 #-------------------------------------------------------------------------------
 # Temporary files
 #-------------------------------------------------------------------------------
 /tmp/*
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+.#*
 
 #-------------------------------------------------------------------------------
 # Sphinx documentation
@@ -103,8 +114,21 @@ MODULE.bazel.lock
 /lib/*
 *.in
 *.clang-tidy
+compile_commands.json
+compile_flags.txt
+.cache/
+.clangd/
+.clangd
+/.idea/
+/.vs/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/build/
+/build-*/
+/dist/
+/out/
 *.png
 StyleGuide.md
 _archive/*
-MODULE.bazel.lock
 
