@@ -2,12 +2,12 @@
     "configurations": [
         {
             "name": "Mac",
-            // "compileCommands": "${workspaceFolder}/compile_commands.json",
+            "compileCommands": "${workspaceFolder}/compile_commands.json",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/src/include",
-                "${workspaceFolder}/third_party/**",
-                "${workspaceFolder}/bazel-00_C_Repo_Template/external/**/*",
+                "${workspaceFolder}/apps/**/include",
+                "${workspaceFolder}/apps/**/src",
+                "${workspaceFolder}/tests/**",
+                "${workspaceFolder}/third_party/**"
             ],
             "defines": [],
             "macFrameworkPath": [],

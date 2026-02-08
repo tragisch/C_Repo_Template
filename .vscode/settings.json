@@ -1,6 +1,25 @@
 {
     "clangd.arguments": [
         // Allow clangd to execute your compiler to find system headers. I've seen strange errors when this is enabled, so it might be worth trying without it.
-        "--query-driver=/**"
+        "--query-driver=/**",
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=never",
+        "--compile-commands-dir=${workspaceFolder}"
     ],
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/compile_commands.json",
+    "files.exclude": {
+        "bazel-bin": true,
+        "bazel-out": true,
+        "bazel-testlogs": true,
+        "bazel-00_C_Repo_Template": true
+    },
+    "search.exclude": {
+        "bazel-bin": true,
+        "bazel-out": true,
+        "bazel-testlogs": true,
+        "bazel-00_C_Repo_Template": true
+    }
 }
