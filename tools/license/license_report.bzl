@@ -19,7 +19,7 @@ visibility and integration capabilities.
 load(
     "@rules_license//rules:gather_licenses_info.bzl",
     "gather_licenses_info",
-    "write_licenses_info",
+    "licenses_info_to_json",
 )
 load(
     "@rules_license//rules_gathering:gather_metadata.bzl",
@@ -31,6 +31,30 @@ load(
     "TransitiveLicensesInfo",
 )
 
+def _safe_write_licenses_info(ctx, deps, json_out):
+    """Writes license info as JSON, skipping targets without license data.
+
+    Some targets yield TransitiveLicensesInfo without target_under_license
+    (when no licenses are found). The upstream write_licenses_info does not
+    guard against that, so we skip such entries here.
+    """
+    licenses_json = []
+    licenses_files = []
+    for dep in deps:
+        if TransitiveLicensesInfo in dep:
+            transitive_licenses_info = dep[TransitiveLicensesInfo]
+            if not hasattr(transitive_licenses_info, "target_under_license"):
+                continue
+            lic_info, lic_files = licenses_info_to_json(transitive_licenses_info)
+            licenses_json.extend(lic_info)
+            licenses_files.extend(lic_files)
+
+    ctx.actions.write(
+        output = json_out,
+        content = "[\n%s\n]\n" % ",\n".join(licenses_json),
+    )
+    return licenses_files
+
 def _license_report_impl(ctx):
     """Implementation for license_report rule.
 
@@ -38,8 +62,8 @@ def _license_report_impl(ctx):
     Uses the official rules_license gather_licenses_info aspect.
     """
 
-    # Use the official write_licenses_info function from rules_license
-    write_licenses_info(ctx, ctx.attr.deps, ctx.outputs.out)
+    # Use a safe writer to avoid failures when no licenses are present
+    _safe_write_licenses_info(ctx, ctx.attr.deps, ctx.outputs.out)
 
     return [DefaultInfo(files = depset([ctx.outputs.out]))]
 
@@ -281,7 +305,7 @@ def _enhanced_license_report_impl(ctx):
 
     # Create standard JSON report using the licenses_deps with gather_licenses_info aspect
     json_file = ctx.actions.declare_file(ctx.label.name + ".json")
-    write_licenses_info(ctx, ctx.attr.licenses_deps, json_file)
+    _safe_write_licenses_info(ctx, ctx.attr.licenses_deps, json_file)
 
     # Create enhanced metadata report using the metadata_deps with gather_metadata_info aspect
     metadata_file = ctx.actions.declare_file(ctx.label.name + "_metadata.json")

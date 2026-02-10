@@ -58,15 +58,42 @@ license_manifest(
 )
 ```
 
+## Example: Using the tools for example_app
+
+The template already defines license/SBOM targets in `apps/example_app/BUILD`:
+
+```starlark
+license_report(
+    name = "example_app_licenses",
+    deps = [":example_app"],
+)
+
+license_summary(
+    name = "example_app_license_summary",
+    license_json = ":example_app_licenses",
+)
+
+generate_sbom(
+    name = "example_app_sbom",
+    deps = [":example_app"],
+)
+```
+
+Build them with:
+
+- `bazel build //apps/example_app:example_app_licenses`
+- `bazel build //apps/example_app:example_app_license_summary`
+- `bazel build //apps/example_app:example_app_sbom`
+
 ## API Compatibility
 
 Our implementation maintains full API compatibility with `@rules_license`:
 
-| Original | Our Implementation | Status |
-|----------|-------------------|---------|
-| `@rules_license//rules_gathering:generate_sbom.bzl` | `generate_sbom()` | ✅ Compatible |
+| Original                                                       | Our Implementation   | Status       |
+| -------------------------------------------------------------- | -------------------- | ------------ |
+| `@rules_license//rules_gathering:generate_sbom.bzl`            | `generate_sbom()`    | ✅ Compatible |
 | `@rules_license//rules_gathering:generate_sbom.bzl manifest()` | `license_manifest()` | ✅ Compatible |
-| `@rules_license//rules:gather_licenses_info.bzl` | `license_report()` | ✅ Compatible |
+| `@rules_license//rules:gather_licenses_info.bzl`               | `license_report()`   | ✅ Compatible |
 
 ## License Information
 
